@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUST — National University of Sciences & Technology | Defining Futures</title>
+    <meta name="description" content="Official flagship digital portal of the National University of Sciences & Technology (NUST), Islamabad, Pakistan.">
+
+    <!-- Google Fonts: Cinzel (Monumental Prestige), Plus Jakarta Sans & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nust: {
+                            obsidian: '#040914',
+                            midnight: '#091326',
+                            navy: '#002147',
+                            royal: '#0052B4',
+                            cyan: '#00D4FF',
+                            gold: '#F5B82E',
+                            amber: '#E09119',
+                            ivory: '#F8FAFC',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        serif: ['"Cinzel"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ================= CINEMATIC NEO-INSTITUTIONAL DESIGN SYSTEM ================= */
+        :root {
+            --obsidian: #040914;
+            --midnight: #091326;
+            --cyan: #00D4FF;
+            --gold: #F5B82E;
+            --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            background-color: #040914;
+            color: #F8FAFC;
+        }
+
+        /* Subtle Ambient Film Grain Overlay */
+        .film-grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9990;
+            opacity: 0.032;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Interactive Cursor Spotlight */
+        #cursor-spotlight {
+            position: fixed;
+            width: 540px;
+            height: 540px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.09) 0%, rgba(245, 184, 46, 0.04) 35%, transparent 70%);
+            transition: opacity 0.4s ease;
+        }
+
+        /* Cinematic Preloader Curtain */
+        #cinematic-preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: radial-gradient(circle at center, #0D1E3A 0%, #040914 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.85s var(--ease-cinematic), transform 0.95s var(--ease-cinematic);
+        }
+        #cinematic-preloader.curtain-up {
+            opacity: 0;
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
+
+        @keyframes lightSweep {
+            0% { transform: translateX(-140%) skewX(-25deg); }
+            100% { transform: translateX(240%) skewX(-25deg); }
+        }
+        .emblem-sweep::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+            animation: lightSweep 1.6s ease-in-out infinite;
+        }
+
+        /* Frosted Glassmorphism & Specular Borders */
+        .glass-panel {
+            background: rgba(9, 19, 38, 0.68);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card-dark {
+            background: linear-gradient(145deg, rgba(15, 31, 61, 0.75) 0%, rgba(7, 15, 31, 0.85) 100%);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transition: transform 0.35s var(--ease-cinematic), border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+        .glass-card-dark:hover {
+            border-color: rgba(0, 212, 255, 0.45);
+            box-shadow: 0 28px 60px -12px rgba(0, 212, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        }
+
+        /* Luminous Gold & Cyan Buttons */
+        .btn-gold-cinematic {
+            background: linear-gradient(135deg, #F5B82E 0%, #E09119 100%);
+            color: #040914;
+            box-shadow: 0 10px 28px -6px rgba(245, 184, 46, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: transform 0.28s var(--ease-cinematic), box-shadow 0.28s ease, filter 0.28s ease;
+        }
+        .btn-gold-cinematic:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px -6px rgba(245, 184, 46, 0.68), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+            filter: brightness(1.05);
+        }
+
+        .btn-glass-cinematic {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            color: #F8FAFC;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 28px -8px rgba(0, 212, 255, 0.25);
+            transition: transform 0.28s var(--ease-cinematic), background 0.28s ease, border-color 0.28s ease;
+        }
+        .btn-glass-cinematic:hover {
+            transform: translateY(-2px);
+            background: rgba(0, 212, 255, 0.14);
+            border-color: #00D4FF;
+        }
+
+        /* Hero Atmospheric Stage */
+        .hero-stage {
+            background:
+                radial-gradient(ellipse 75% 55% at 72% 40%, rgba(0, 82, 180, 0.36) 0%, transparent 65%),
+                radial-gradient(ellipse 55% 45% at 22% 75%, rgba(245, 184, 46, 0.14) 0%, transparent 60%),
+                radial-gradient(circle at 50% 0%, #0E2247 0%, #040914 75%);
+        }
+
+        /* Volumetric Light Beams */
+        @keyframes beamPulse {
+            0%, 100% { opacity: 0.28; transform: rotate(-18deg) scaleX(1); }
+            50% { opacity: 0.48; transform: rotate(-16deg) scaleX(1.08); }
+        }
+        .volumetric-beam {
+            background: linear-gradient(180deg, rgba(0, 212, 255, 0.35) 0%, rgba(245, 184, 46, 0.08) 55%, transparent 100%);
+            filter: blur(28px);
+            transform-origin: top center;
+            animation: beamPulse 7s ease-in-out infinite;
+        }
+
+        /* Keyframe Diorama & Emblem Animations */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes orbitCW {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes orbitCCW {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        @keyframes owlEyeGlow {
+            0%, 100% { filter: drop-shadow(0 0 6px #00D4FF); opacity: 0.95; }
+            50% { filter: drop-shadow(0 0 14px #F5B82E); opacity: 1; }
+        }
+        @keyframes rocketThrust {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+        @keyframes plumeFlicker {
+            0%, 100% { transform: scaleY(1) opacity(0.95); }
+            50% { transform: scaleY(1.24) opacity(0.78); }
+        }
+        @keyframes synapsePulse {
+            0%, 100% { stroke-dashoffset: 48; opacity: 0.45; }
+            50% { stroke-dashoffset: 0; opacity: 1; }
+        }
+        @keyframes marqueeFlow {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .anim-float-slow { animation: floatSlow 5.5s ease-in-out infinite; }
+        .anim-orbit-cw { transform-origin: center; animation: orbitCW 24s linear infinite; }
+        .anim-orbit-ccw { transform-origin: center; animation: orbitCCW 18s linear infinite; }
+        .anim-owl-glow { animation: owlEyeGlow 3.2s ease-in-out infinite; }
+        .anim-rocket-thrust { animation: rocketThrust 3.4s ease-in-out infinite; }
+        .anim-plume { transform-origin: top center; animation: plumeFlicker 0.3s ease-in-out infinite; }
+        .anim-synapse { stroke-dasharray: 12 12; animation: synapsePulse 2.8s linear infinite; }
+
+        .marquee-cinematic {
+            display: flex;
+            width: max-content;
+            animation: marqueeFlow 34s linear infinite;
+        }
+        .marquee-cinematic:hover { animation-play-state: paused; }
+
+        /* Staggered Masked Headline Reveal */
+        .line-mask {
+            overflow: hidden;
+            display: block;
+        }
+        .line-reveal {
+            display: block;
+            transform: translateY(105%);
+            opacity: 0;
+            transition: transform 0.95s var(--ease-cinematic), opacity 0.8s ease;
+        }
+        .hero-loaded .line-reveal {
+            transform: translateY(0%);
+            opacity: 1;
+        }
+
+        /* Scroll Reveal Choreography */
+        .cinematic-reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
+        }
+        .cinematic-reveal.is-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mega Menu Transition */
+        .mega-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s var(--ease-cinematic);
+        }
+        .group:hover .mega-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Custom Cockpit Range Sliders */
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #FFF3C4, #F5B82E);
+            border: 2px solid #040914;
+            cursor: pointer;
+            margin-top: -7px;
+            box-shadow: 0 0 14px rgba(245, 184, 46, 0.85);
+            transition: transform 0.2s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+        }
+
+        /* Particle Overlay Canvas */
+        #celebration-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9995;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-nust-gold selection:text-nust-obsidian overflow-x-hidden">
+
+    <!-- Ambient Film Grain & Interactive Cursor Spotlight -->
+    <div class="film-grain"></div>
+    <div id="cursor-spotlight" class="hidden lg:block"></div>
+    <canvas id="celebration-canvas"></canvas>
+
+    <!-- ==================== CINEMATIC PRELOADER CURTAIN ==================== -->
+    <div id="cinematic-preloader">
+        <div class="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-nust-royal to-nust-obsidian border border-nust-gold/50 flex items-center justify-center shadow-[0_0_50px_rgba(0,212,255,0.35)] overflow-hidden emblem-sweep">
+            <svg viewBox="0 0 64 64" class="w-12 h-12" fill="none">
+                <path d="M32 4L8 14V30C8 45.5 18.2 58.6 32 62C45.8 58.6 56 45.5 56 30V14L32 4Z" fill="#040914" stroke="#F5B82E" stroke-width="2.5"/>
+                <circle cx="32" cy="28" r="10" stroke="#00D4FF" stroke-width="2.5"/>
+                <path d="M25 32L32 19L39 32H25Z" fill="#F5B82E"/>
+                <text x="32" y="53" text-anchor="middle" fill="#F5B82E" font-size="8" font-weight="800" font-family="sans-serif" letter-spacing="1">NUST</text>
+            </svg>
+        </div>
+        <p class="font-serif text-xs tracking-[0.35em] text-nust-gold uppercase mt-5">National University of Sciences & Technology</p>
+        <div class="w-44 h-0.5 bg-white/10 rounded-full overflow-hidden mt-3">
+            <div id="preloader-bar" class="h-full bg-gradient-to-r from-nust-cyan to-nust-gold transition-all duration-700" style="width: 30%"></div>
+        </div>
+    </div>
+
+    <!-- ==================== 1. TOP INSTITUTIONAL UTILITY BAR ==================== -->
+    <div class="bg-nust-obsidian/95 text-slate-300 text-xs border-b border-white/10 relative z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-nust-gold/15 border border-nust-gold/40 text-nust-gold font-display font-semibold text-[11px] tracking-wide">
+                    <span class="w-1.5 h-1.5 rounded-full bg-nust-cyan animate-ping mr-2"></span>
+                    NET-2027 ADMISSIONS OPEN
+                </span>
+                <span class="hidden lg:inline text-slate-400">Sector H-12, Islamabad • Chartered Research University</span>
+            </div>
+            <div class="flex items-center space-x-4 sm:space-x-6 font-medium overflow-x-auto whitespace-nowrap">
+                <button onclick="showToast('Launching Qalam LMS Student & Faculty Portal...', '🎓')" class="hover:text-nust-gold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-graduation-cap text-nust-cyan"></i> Qalam LMS
+                </button>
+                <button onclick="showToast('Connecting to NUST Official Webmail...', '✉️')" class="hover:text-nust-gold transition">Webmail</button>
+                <a href="#research" class="hover:text-nust-gold transition text-nust-cyan font-semibold">NSTP</a>
+                <button onclick="showToast('NUST Global Alumni Network Portal opened.', '🌐')" class="hover:text-nust-gold transition">Alumni</button>
+                <button onclick="showToast('NUST Academic & Research Careers Portal opened.', '🏛️')" class="hover:text-nust-gold transition">Careers</button>
+                <a href="#footer" class="hover:text-nust-gold transition">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 2. STICKY FROSTED GLASS MEGA-HEADER ==================== -->
+    <header class="sticky top-0 z-40 bg-nust-obsidian/80 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Prestige Brand Emblem -->
+                <a href="#" class="flex items-center space-x-3.5 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-nust-royal/40 to-nust-midnight border border-nust-gold/40 p-1.5 flex items-center justify-center shadow-[0_0_25px_rgba(0,212,255,0.2)] group-hover:border-nust-gold transition-all">
+                        <svg viewBox="0 0 64 64" class="w-full h-full" fill="none">
+                            <path d="M32 4L8 14V30C8 45.5 18.2 58.6 32 62C45.8 58.6 56 45.5 56 30V14L32 4Z" fill="#040914" stroke="#F5B82E" stroke-width="3"/>
+                            <circle cx="32" cy="28" r="10.5" stroke="#00D4FF" stroke-width="2.5"/>
+                            <path d="M25 32L32 19L39 32H25Z" fill="#F5B82E"/>
+                            <text x="32" y="54" text-anchor="middle" fill="#F5B82E" font-size="8.5" font-weight="800" font-family="sans-serif">NUST</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="font-serif font-bold text-2xl tracking-wider text-white">NUST</span>
+                            <span class="hidden sm:inline-block text-[10px] font-display font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white/5 text-nust-gold border border-nust-gold/30">Est. 1991</span>
+                        </div>
+                        <p class="text-[11px] sm:text-xs text-slate-400 font-medium leading-tight">National University of Sciences & Technology</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation & Glass Mega-Dropdowns -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <!-- About -->
+                    <div class="relative group">
+                        <button class="px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/5 flex items-center gap-1.5 transition">
+                            About <i class="fa-solid fa-chevron-down text-[10px] text-nust-cyan group-hover:rotate-180 transition-transform"></i>
+                        </button>
+                        <div class="mega-dropdown absolute left-0 top-full pt-3 w-[560px]">
+                            <div class="glass-panel rounded-2xl p-6 grid grid-cols-2 gap-6">
+                                <div>
+                                    <span class="text-[11px] font-display font-bold uppercase tracking-widest text-nust-cyan">Institutional Legacy</span>
+                                    <ul class="mt-3.5 space-y-2.5 text-sm">
+                                        <li><a href="#programs" class="flex items-center gap-2.5 text-slate-200 hover:text-nust-gold transition"><i class="fa-solid fa-landmark text-nust-cyan w-4"></i> Rector's Vision & Governance</a></li>
+                                        <li><a href="#programs" class="flex items-center gap-2.5 text-slate-200 hover:text-nust-gold transition"><i class="fa-solid fa-award text-nust-gold w-4"></i> QS World & Asia Rankings</a></li>
+                                        <li><a href="#campuses" class="flex items-center gap-2.5 text-slate-200 hover:text-nust-gold transition"><i class="fa-solid fa-map-location-dot text-emerald-400 w-4"></i> 5 Nationwide Campuses</a></li>
+                                        <li><a href="#news" class="flex items-center gap-2.5 text-slate-200 hover:text-nust-gold transition"><i class="fa-solid fa-shield-halved text-nust-cyan w-4"></i> Quality Assurance Directorate</a></li>
+                                    </ul>
+                                </div>
+                                <div class="rounded-xl bg-gradient-to-br from-nust-royal/30 to-nust-obsidian border border-nust-gold/30 p-4 flex flex-col justify-between">
+                                    <div>
+                                        <span class="text-[11px] font-display font-bold uppercase tracking-wider text-nust-gold">QS World University Rankings</span>
+                                        <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">Ranked <strong class="text-white">#334 Globally</strong> and <strong class="text-nust-cyan">#1 in Pakistan</strong> for Engineering & Technology (#127 Worldwide).</p>
+                                    </div>
+                                    <a href="#campuses" class="mt-4 text-xs font-bold text-nust-gold hover:underline inline-flex items-center gap-1.5">
+                                        Explore H-12 Flagship <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admissions -->
+                    <div class="relative group">
+                        <button class="px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/5 flex items-center gap-1.5 transition">
+                            Admissions <i class="fa-solid fa-chevron-down text-[10px] text-nust-cyan group-hover:rotate-180 transition-transform"></i>
+                        </button>
+                        <div class="mega-dropdown absolute left-0 top-full pt-3 w-[600px]">
+                            <div class="glass-panel rounded-2xl p-6 grid grid-cols-2 gap-6">
+                                <div>
+                                    <span class="text-[11px] font-display font-bold uppercase tracking-widest text-nust-cyan">Admission Pathways</span>
+                                    <ul class="mt-3.5 space-y-3 text-sm">
+                                        <li><a href="#admissions" class="block text-white hover:text-nust-gold font-semibold">Undergraduate (NET / SAT)</a><span class="text-xs text-slate-400">BS Engineering, AI, CS, Business & Sciences</span></li>
+                                        <li><a href="#admissions" class="block text-white hover:text-nust-gold font-semibold">Postgraduate (MS / PhD)</a><span class="text-xs text-slate-400">GNET, GAT-General & Research Fellowships</span></li>
+                                        <li><a href="#admissions" class="block text-white hover:text-nust-gold font-semibold">International Students</a><span class="text-xs text-slate-400">Dedicated global seats & scholarships</span></li>
+                                    </ul>
+                                </div>
+                                <div class="rounded-xl bg-gradient-to-br from-nust-midnight to-nust-obsidian border border-nust-cyan/30 p-4 flex flex-col justify-between">
+                                    <div>
+                                        <span class="text-[11px] font-display font-bold uppercase tracking-wider text-nust-cyan">Telemetry Calculator</span>
+                                        <h4 class="font-display font-bold text-base text-white mt-1">NET Merit Aggregate</h4>
+                                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Compute your real-time aggregate using official HSSC & O/A-Level weightages.</p>
+                                    </div>
+                                    <a href="#admissions" class="mt-4 py-2 rounded-lg btn-gold-cinematic text-center font-display font-bold text-xs">
+                                        Launch Merit Gauge
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Academics -->
+                    <div class="relative group">
+                        <button class="px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/5 flex items-center gap-1.5 transition">
+                            Academics <i class="fa-solid fa-chevron-down text-[10px] text-nust-cyan group-hover:rotate-180 transition-transform"></i>
+                        </button>
+                        <div class="mega-dropdown absolute -left-24 top-full pt-3 w-[670px]">
+                            <div class="glass-panel rounded-2xl p-6">
+                                <div class="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
+                                    <span class="text-[11px] font-display font-bold uppercase tracking-widest text-nust-cyan">Constituent Schools & Colleges</span>
+                                    <a href="#programs" class="text-xs font-bold text-nust-gold hover:underline">Browse All 120+ Degrees →</a>
+                                </div>
+                                <div class="grid grid-cols-3 gap-3 text-xs">
+                                    <a href="#programs" onclick="filterProgramsBySchool('SEECS')" class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-nust-cyan/50 hover:bg-white/[0.07] transition">
+                                        <p class="font-bold text-nust-cyan">SEECS</p>
+                                        <p class="text-slate-300 mt-0.5">Electrical Engg. & Computer Science</p>
+                                    </a>
+                                    <a href="#programs" onclick="filterProgramsBySchool('SMME')" class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-nust-gold/50 hover:bg-white/[0.07] transition">
+                                        <p class="font-bold text-nust-gold">SMME</p>
+                                        <p class="text-slate-300 mt-0.5">Mechanical & Robotics Engg.</p>
+                                    </a>
+                                    <a href="#programs" onclick="filterProgramsBySchool('NBS')" class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-emerald-400/50 hover:bg-white/[0.07] transition">
+                                        <p class="font-bold text-emerald-400">NBS</p>
+                                        <p class="text-slate-300 mt-0.5">NUST Business School</p>
+                                    </a>
+                                    <a href="#programs" onclick="filterProgramsBySchool('S3H')" class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-purple-400/50 hover:bg-white/[0.07] transition">
+                                        <p class="font-bold text-purple-300">S3H</p>
+                                        <p class="text-slate-300 mt-0.5">Social Sciences & Humanities</p>
+                                    </a>
+                                    <a href="#programs" onclick="filterProgramsBySchool('SADA')" class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-rose-400/50 hover:bg-white/[0.07] transition">
+                                        <p class="font-bold text-rose-300">SADA</p>
+                                        <p class="text-slate-300 mt-0.5">Art, Design & Architecture</p>
+                                    </a>
+                                    <a href="#programs" onclick="filterProgramsBySchool('ASAB')" class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-teal-400/50 hover:bg-white/[0.07] transition">
+                                        <p class="font-bold text-teal-300">ASAB & NICE</p>
+                                        <p class="text-slate-300 mt-0.5">Biosciences & Civil Engg.</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#research" class="px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/5 transition">Research & NSTP</a>
+                    <a href="#campuses" class="px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/5 transition">Campuses</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="openSearchModal()" aria-label="Search NUST" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-200 flex items-center gap-2 text-xs transition">
+                        <i class="fa-solid fa-magnifying-glass text-nust-cyan"></i>
+                        <span class="hidden xl:inline text-slate-400">Search</span>
+                        <kbd class="hidden xl:inline px-1.5 py-0.5 text-[10px] rounded bg-white/10 text-slate-300 font-mono">⌘K</kbd>
+                    </button>
+                    <button onclick="openApplyModal()" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl btn-gold-cinematic font-display font-bold text-sm">
+                        <span>Apply Now (NET)</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-xl bg-white/5 border border-white/15 text-white">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Glass Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-nust-midnight/95 backdrop-blur-xl border-t border-white/10 px-4 pt-3 pb-6 space-y-2">
+            <a href="#programs" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-semibold text-slate-200 hover:bg-white/10">Academics & Programs</a>
+            <a href="#admissions" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-semibold text-slate-200 hover:bg-white/10">Admissions & NET Calculator</a>
+            <a href="#research" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-semibold text-slate-200 hover:bg-white/10">Research & NSTP</a>
+            <a href="#campuses" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-semibold text-slate-200 hover:bg-white/10">Nationwide Campuses</a>
+            <a href="#news" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-semibold text-slate-200 hover:bg-white/10">News & Circulars</a>
+            <div class="pt-2">
+                <button onclick="toggleMobileMenu(); openApplyModal();" class="w-full py-3 rounded-xl btn-gold-cinematic font-display font-bold text-sm">
+                    Apply Now — NET Admissions
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 3. WIDESCREEN CINEMATIC HERO & ARCHITECTURAL DIORAMA ==================== -->
+    <section id="hero-section" class="hero-stage relative pt-10 pb-24 lg:pt-14 lg:pb-28 overflow-hidden border-b border-white/10">
+        
+        <!-- Interactive Golden Stardust & Constellation Canvas -->
+        <canvas id="hero-stardust-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+        <!-- Volumetric Diagonal Light Beams -->
+        <div class="volumetric-beam pointer-events-none absolute -top-24 right-[18%] w-72 h-[540px] z-0"></div>
+        <div class="volumetric-beam pointer-events-none absolute -top-32 right-[34%] w-48 h-[480px] opacity-20 z-0" style="animation-delay: -3s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                
+                <!-- Left 6 Cols: Kinetic Typography & Prestige Badges -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.06] border border-nust-gold/35 backdrop-blur-md text-xs font-display font-semibold text-nust-gold">
+                        <i class="fa-solid fa-crown text-nust-gold"></i>
+                        <span>#1 Engineering & Technology University in Pakistan</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-[54px] font-extrabold leading-[1.08] tracking-tight text-white">
+                        <span class="line-mask"><span class="line-reveal" style="transition-delay: 0.1s;">SHAPING</span></span>
+                        <span class="line-mask"><span class="line-reveal bg-gradient-to-r from-nust-gold via-amber-200 to-nust-cyan bg-clip-text text-transparent" style="transition-delay: 0.24s;">TOMORROW'S</span></span>
+                        <span class="line-mask"><span class="line-reveal" style="transition-delay: 0.38s;">PIONEERS.</span></span>
+                    </h1>
+
+                    <p class="text-sm sm:text-base lg:text-lg text-slate-300 max-w-xl leading-relaxed">
+                        A sanctuary of scientific discovery, artificial intelligence, and entrepreneurial excellence nestled at the Margalla foothills in Sector H-12, Islamabad.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-1">
+                        <button onclick="openApplyModal()" class="px-7 py-3.5 rounded-xl btn-gold-cinematic font-display font-bold text-sm sm:text-base flex items-center gap-2.5">
+                            <span>Begin Fall Admission</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                        <a href="#campuses" class="px-6 py-3.5 rounded-xl btn-glass-cinematic font-display font-bold text-sm sm:text-base flex items-center gap-2.5">
+                            <i class="fa-solid fa-compass text-nust-cyan"></i>
+                            <span>Virtual H-12 Panorama</span>
+                        </a>
+                    </div>
+
+                    <!-- QS Prestige Glass Telemetry Pills -->
+                    <div class="grid grid-cols-3 gap-3.5 pt-3 max-w-lg">
+                        <div class="glass-card-dark rounded-2xl p-3.5">
+                            <p class="font-display text-xl sm:text-2xl font-bold text-nust-gold">#334</p>
+                            <p class="text-[11px] text-slate-400 font-medium mt-0.5">QS World Ranking</p>
+                        </div>
+                        <div class="glass-card-dark rounded-2xl p-3.5">
+                            <p class="font-display text-xl sm:text-2xl font-bold text-nust-cyan">#127</p>
+                            <p class="text-[11px] text-slate-400 font-medium mt-0.5">Engg & Tech Global</p>
+                        </div>
+                        <div class="glass-card-dark rounded-2xl p-3.5">
+                            <p class="font-display text-xl sm:text-2xl font-bold text-white">120+</p>
+                            <p class="text-[11px] text-slate-400 font-medium mt-0.5">Accredited Degrees</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right 6 Cols: Interactive Luminous Architectural & Owl Emblem Diorama -->
+                <div class="lg:col-span-6 flex flex-col items-center justify-center relative">
+                    
+                    <!-- Interactive Wisdom Tooltip Floating Above Diorama -->
+                    <div onclick="cycleInsight()" class="cursor-pointer mb-3 max-w-md glass-panel rounded-2xl px-5 py-3 border border-nust-cyan/30 hover:border-nust-gold/60 transition flex items-center justify-between gap-3 group">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-nust-cyan/15 border border-nust-cyan/40 flex items-center justify-center text-nust-cyan shrink-0">
+                                <i class="fa-solid fa-sparkles text-xs"></i>
+                            </span>
+                            <p id="diorama-insight-text" class="text-xs sm:text-sm text-slate-200 font-medium leading-snug">
+                                <strong class="text-nust-gold">NUST Insight:</strong> NET carries 75% merit weightage with zero negative marking.
+                            </p>
+                        </div>
+                        <span class="text-[10px] font-display font-bold uppercase tracking-wider px-2 py-1 rounded bg-white/10 text-nust-cyan group-hover:bg-nust-gold group-hover:text-nust-obsidian transition shrink-0">Next</span>
+                    </div>
+
+                    <!-- Multi-Layered SVG Architectural + Holographic Owl Diorama -->
+                    <div id="hero-diorama" onclick="cycleInsight()" class="cursor-pointer relative w-full max-w-[490px] aspect-[16/13] rounded-3xl glass-panel border border-white/15 overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.85)] group" title="Click to cycle NUST insights">
+                        <svg viewBox="0 0 520 420" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="stageCoreGlow" cx="50%" cy="42%" r="52%">
+                                    <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.32"/>
+                                    <stop offset="55%" stop-color="#0052B4" stop-opacity="0.16"/>
+                                    <stop offset="100%" stop-color="#040914" stop-opacity="0"/>
+                                </radialGradient>
+                                <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FFF0B3"/>
+                                    <stop offset="50%" stop-color="#F5B82E"/>
+                                    <stop offset="100%" stop-color="#B8730A"/>
+                                </linearGradient>
+                                <linearGradient id="cyanRim" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#99F0FF"/>
+                                    <stop offset="100%" stop-color="#0088CC"/>
+                                </linearGradient>
+                                <linearGradient id="towerFacade" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#152B52"/>
+                                    <stop offset="100%" stop-color="#071124"/>
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Deep Cosmic Sky & Core Radial Spotlight -->
+                            <rect width="520" height="420" fill="#050C1B"/>
+                            <rect width="520" height="420" fill="url(#stageCoreGlow)"/>
+
+                            <!-- Subtle Architectural Blueprint Grid -->
+                            <g stroke="#00D4FF" stroke-opacity="0.08" stroke-width="1">
+                                <line x1="0" y1="80" x2="520" y2="80"/>
+                                <line x1="0" y1="160" x2="520" y2="160"/>
+                                <line x1="0" y1="240" x2="520" y2="240"/>
+                                <line x1="0" y1="320" x2="520" y2="320"/>
+                                <line x1="130" y1="0" x2="130" y2="420"/>
+                                <line x1="260" y1="0" x2="260" y2="420"/>
+                                <line x1="390" y1="0" x2="390" y2="420"/>
+                            </g>
+
+                            <!-- Margalla Hills Twilight Silhouette -->
+                            <path d="M0 290L115 210L220 265L335 195L445 255L520 215V420H0V290Z" fill="#091730" stroke="#00D4FF" stroke-opacity="0.2" stroke-width="1.5"/>
+                            <path d="M0 315L150 250L285 305L410 245L520 295V420H0V315Z" fill="#061022"/>
+
+                            <!-- Orbiting Holographic Astrolabe Rings -->
+                            <g class="anim-orbit-cw">
+                                <circle cx="260" cy="175" r="138" stroke="url(#goldRim)" stroke-width="1.2" stroke-dasharray="6 8" opacity="0.55"/>
+                                <circle cx="398" cy="175" r="4.5" fill="#F5B82E"/>
+                                <circle cx="122" cy="175" r="4" fill="#00D4FF"/>
+                            </g>
+                            <g class="anim-orbit-ccw">
+                                <circle cx="260" cy="175" r="108" stroke="url(#cyanRim)" stroke-width="1.4" stroke-dasharray="28 14 4 14" opacity="0.65"/>
+                            </g>
+
+                            <!-- Iconic NUST H-12 Clocktower & Academic Wing Silhouette -->
+                            <g transform="translate(0, 12)">
+                                <!-- Left & Right Academic Wings -->
+                                <rect x="82" y="255" width="128" height="90" rx="4" fill="url(#towerFacade)" stroke="#00D4FF" stroke-opacity="0.35" stroke-width="1.5"/>
+                                <rect x="310" y="255" width="128" height="90" rx="4" fill="url(#towerFacade)" stroke="#00D4FF" stroke-opacity="0.35" stroke-width="1.5"/>
+                                <!-- Illuminated Wing Windows -->
+                                <g fill="#F5B82E" fill-opacity="0.55">
+                                    <rect x="102" y="274" width="16" height="22" rx="2"/>
+                                    <rect x="136" y="274" width="16" height="22" rx="2"/>
+                                    <rect x="170" y="274" width="16" height="22" rx="2"/>
+                                    <rect x="334" y="274" width="16" height="22" rx="2"/>
+                                    <rect x="368" y="274" width="16" height="22" rx="2"/>
+                                    <rect x="402" y="274" width="16" height="22" rx="2"/>
+                                </g>
+
+                                <!-- Central Monumental Clocktower -->
+                                <rect x="215" y="185" width="90" height="160" rx="4" fill="url(#towerFacade)" stroke="url(#goldRim)" stroke-width="2"/>
+                                <path d="M206 185L260 144L314 185H206Z" fill="#0C1E3E" stroke="url(#goldRim)" stroke-width="2"/>
+                                <!-- Spire -->
+                                <line x1="260" y1="120" x2="260" y2="144" stroke="#F5B82E" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="260" cy="117" r="3.5" fill="#00D4FF"/>
+
+                                <!-- Glowing Tower Clock Face -->
+                                <circle cx="260" cy="222" r="22" fill="#040914" stroke="url(#goldRim)" stroke-width="2.5"/>
+                                <path d="M260 222V209M260 222L270 227" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+
+                                <!-- Grand Arched Entrance -->
+                                <path d="M238 345V302C238 290 248 282 260 282C272 282 282 290 282 302V345H238Z" fill="#040914" stroke="#00D4FF" stroke-width="1.8"/>
+                            </g>
+
+                            <!-- Stylized Luminous Golden & Cyan NUST Owl Emblem Hovering Above Spire -->
+                            <g class="anim-float-slow" transform="translate(260, 76)">
+                                <!-- Emblem Shield Aura -->
+                                <circle cx="0" cy="0" r="42" fill="#040914" fill-opacity="0.88" stroke="url(#goldRim)" stroke-width="2.2"/>
+                                <!-- Stylized Geometric Owl Crest -->
+                                <path d="M-22 -10L-28 -24L-10 -16C-4 -18 4 -18 10 -16L28 -24L22 -10C26 -2 24 12 14 20L0 28L-14 20C-24 12 -26 -2 -22 -10Z" fill="#0B1B36" stroke="url(#goldRim)" stroke-width="2"/>
+                                <!-- Wing Geometric Lines -->
+                                <path d="M-18 4L-6 14M18 4L6 14" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round"/>
+                                <!-- Luminous Owl Eyes -->
+                                <g class="anim-owl-glow">
+                                    <circle cx="-9" cy="-4" r="5.5" fill="#040914" stroke="#00D4FF" stroke-width="2"/>
+                                    <circle cx="-9" cy="-4" r="2" fill="#F5B82E"/>
+                                    <circle cx="9" cy="-4" r="5.5" fill="#040914" stroke="#00D4FF" stroke-width="2"/>
+                                    <circle cx="9" cy="-4" r="2" fill="#F5B82E"/>
+                                </g>
+                                <!-- Golden Beak -->
+                                <path d="M-3 3H3L0 9L-3 3Z" fill="#F5B82E"/>
+                            </g>
+
+                            <!-- Foreground Reflecting Pool & Light Beams -->
+                            <rect x="0" y="356" width="520" height="64" fill="#030711"/>
+                            <line x1="0" y1="356" x2="520" y2="356" stroke="url(#cyanRim)" stroke-width="1.5" stroke-opacity="0.5"/>
+                            <ellipse cx="260" cy="386" rx="135" ry="12" fill="#00D4FF" fill-opacity="0.12"/>
+                            <ellipse cx="260" cy="386" rx="75" ry="6" fill="#F5B82E" fill-opacity="0.18"/>
+                        </svg>
+
+                        <!-- Bottom Diorama Status Strip -->
+                        <div class="absolute bottom-3 inset-x-3 px-4 py-2 rounded-xl bg-nust-obsidian/80 backdrop-blur-md border border-white/10 flex items-center justify-between text-[11px]">
+                            <span class="text-slate-300 font-medium flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                H-12 Flagship Gate & Wisdom Crest
+                            </span>
+                            <span class="font-display font-bold text-nust-gold">ISLAMABAD • 33.64° N</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glassmorphic Program Finder Command Bar -->
+            <div class="mt-12 lg:mt-16 glass-panel rounded-2xl p-5 sm:p-7 border border-white/15">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <h2 class="font-display font-bold text-white text-base sm:text-lg flex items-center gap-2.5">
+                        <span class="w-7 h-7 rounded-lg bg-nust-gold/20 border border-nust-gold/50 text-nust-gold flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-compass"></i>
+                        </span>
+                        <span>Academic Program Command Finder</span>
+                    </h2>
+                    <span class="text-xs font-medium text-nust-cyan">HEC & PEC Washington Accord Accredited</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5">
+                    <div class="md:col-span-4 relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-nust-cyan text-xs"></i>
+                        <input id="hero-search-input" type="text" placeholder="Search Computer Science, AI, BBA, Robotics..." class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.06] border border-white/15 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-nust-gold transition">
+                    </div>
+
+                    <div class="md:col-span-3">
+                        <select id="hero-level-select" class="w-full px-3.5 py-3 rounded-xl bg-nust-midnight border border-white/15 text-sm text-slate-200 focus:outline-none focus:border-nust-gold transition">
+                            <option value="All">All Degree Levels</option>
+                            <option value="Undergraduate">Undergraduate (BS / BE)</option>
+                            <option value="Masters">Postgraduate (MS / MBA)</option>
+                            <option value="PhD">Doctoral (PhD)</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-3">
+                        <select id="hero-discipline-select" class="w-full px-3.5 py-3 rounded-xl bg-nust-midnight border border-white/15 text-sm text-slate-200 focus:outline-none focus:border-nust-gold transition">
+                            <option value="All">All Disciplines</option>
+                            <option value="Computing">Computing & AI</option>
+                            <option value="Engineering">Engineering & Tech</option>
+                            <option value="Business">Business & Management</option>
+                            <option value="Social Sciences">Social Sciences</option>
+                            <option value="Architecture">Architecture & Design</option>
+                            <option value="Natural Sciences">Biosciences</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <button onclick="executeHeroSearch()" class="w-full h-full py-3 px-4 rounded-xl btn-gold-cinematic font-display font-bold text-sm flex items-center justify-center gap-2">
+                            <span>Explore</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LUMINOUS INSTITUTIONAL MARQUEE ==================== -->
+    <div class="bg-nust-midnight border-b border-white/10 py-3 overflow-hidden relative z-20">
+        <div class="marquee-cinematic flex items-center space-x-10 text-xs sm:text-sm font-display font-semibold tracking-wide text-slate-300">
+            <span class="flex items-center gap-2"><span class="text-nust-gold">✦</span> NET-2027 SERIES-1 REGISTRATIONS NOW LIVE</span>
+            <span class="flex items-center gap-2"><span class="text-nust-cyan">✦</span> RANKED #1 IN PAKISTAN FOR ENGINEERING & TECHNOLOGY (QS RANKINGS)</span>
+            <span class="flex items-center gap-2"><span class="text-nust-gold">✦</span> NSTP HOUSES 110+ HIGH-TECH STARTUPS & R&D CENTERS AT H-12</span>
+            <span class="flex items-center gap-2"><span class="text-nust-cyan">✦</span> NEED-BASED SCHOLARSHIPS & HONHAAR FINANCIAL AID AVAILABLE</span>
+            <span class="flex items-center gap-2"><span class="text-nust-gold">✦</span> NUST INTERNATIONAL AI & ROBOTICS OLYMPIAD 2026</span>
+            <span class="flex items-center gap-2"><span class="text-nust-gold">✦</span> NET-2027 SERIES-1 REGISTRATIONS NOW LIVE</span>
+            <span class="flex items-center gap-2"><span class="text-nust-cyan">✦</span> RANKED #1 IN PAKISTAN FOR ENGINEERING & TECHNOLOGY (QS RANKINGS)</span>
+            <span class="flex items-center gap-2"><span class="text-nust-gold">✦</span> NSTP HOUSES 110+ HIGH-TECH STARTUPS & R&D CENTERS AT H-12</span>
+            <span class="flex items-center gap-2"><span class="text-nust-cyan">✦</span> NEED-BASED SCHOLARSHIPS & HONHAAR FINANCIAL AID AVAILABLE</span>
+            <span class="flex items-center gap-2"><span class="text-nust-gold">✦</span> NUST INTERNATIONAL AI & ROBOTICS OLYMPIAD 2026</span>
+        </div>
+    </div>
+
+    <!-- ==================== 4. INTERACTIVE ACADEMIC SCHOOLS & PROGRAM EXPLORER ==================== -->
+    <section id="programs" class="py-20 bg-nust-obsidian relative border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="cinematic-reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-xs font-display font-bold uppercase tracking-[0.2em] text-nust-cyan">Academic Portfolio</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Constituent Schools & Degree Programs</h2>
+                    <p class="text-slate-400 mt-2 max-w-2xl text-sm sm:text-base">
+                        Filter across NUST’s world-renowned schools and degree levels. Select any program card to inspect curriculum modules, entry test tracks, and semester tuition.
+                    </p>
+                </div>
+
+                <!-- Degree Level Switcher -->
+                <div class="inline-flex p-1.5 rounded-xl bg-nust-midnight border border-white/10 self-start">
+                    <button onclick="setProgramLevel('All')" data-level="All" class="level-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-display font-bold bg-nust-gold text-nust-obsidian transition">All</button>
+                    <button onclick="setProgramLevel('Undergraduate')" data-level="Undergraduate" class="level-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-display font-bold text-slate-300 hover:text-white transition">Undergraduate</button>
+                    <button onclick="setProgramLevel('Masters')" data-level="Masters" class="level-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-display font-bold text-slate-300 hover:text-white transition">Masters</button>
+                    <button onclick="setProgramLevel('PhD')" data-level="PhD" class="level-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-display font-bold text-slate-300 hover:text-white transition">PhD</button>
+                </div>
+            </div>
+
+            <!-- School Filter Chips -->
+            <div class="cinematic-reveal flex items-center gap-2.5 overflow-x-auto pb-4 mb-6">
+                <button onclick="setProgramSchool('All')" data-school="All" class="school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-bold bg-nust-cyan/20 text-nust-cyan border border-nust-cyan transition">All Schools</button>
+                <button onclick="setProgramSchool('SEECS')" data-school="SEECS" class="school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-semibold bg-white/[0.04] text-slate-300 border border-white/10 hover:border-white/30 transition">SEECS (Computing & EE)</button>
+                <button onclick="setProgramSchool('SMME')" data-school="SMME" class="school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-semibold bg-white/[0.04] text-slate-300 border border-white/10 hover:border-white/30 transition">SMME (Mechanical & Robotics)</button>
+                <button onclick="setProgramSchool('NBS')" data-school="NBS" class="school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-semibold bg-white/[0.04] text-slate-300 border border-white/10 hover:border-white/30 transition">NBS (Business School)</button>
+                <button onclick="setProgramSchool('S3H')" data-school="S3H" class="school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-semibold bg-white/[0.04] text-slate-300 border border-white/10 hover:border-white/30 transition">S3H (Social Sciences)</button>
+                <button onclick="setProgramSchool('SADA')" data-school="SADA" class="school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-semibold bg-white/[0.04] text-slate-300 border border-white/10 hover:border-white/30 transition">SADA (Architecture & Design)</button>
+                <button onclick="setProgramSchool('ASAB')" data-school="ASAB" class="school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-semibold bg-white/[0.04] text-slate-300 border border-white/10 hover:border-white/30 transition">ASAB (Biosciences)</button>
+            </div>
+
+            <div class="flex items-center justify-between mb-6 text-xs text-slate-400">
+                <p id="program-count-label">Showing <span class="text-white font-bold">9</span> featured programs</p>
+                <button onclick="resetProgramFilters()" class="text-nust-gold hover:underline flex items-center gap-1.5 font-semibold">
+                    <i class="fa-solid fa-rotate-left"></i> Reset Filters
+                </button>
+            </div>
+
+            <!-- 3D-Tilt Glass Program Cards Grid -->
+            <div id="programs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. ADMISSIONS TIMELINE & COCKPIT NET MERIT GAUGE ==================== -->
+    <section id="admissions" class="py-20 bg-nust-ivory text-slate-900 border-b border-slate-200 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="cinematic-reveal text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-nust-navy/10 border border-nust-navy/20 text-xs font-display font-bold uppercase tracking-widest text-nust-navy">Admissions & Telemetry</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-nust-navy mt-2.5">Admissions Roadmap & NET Merit Gauge</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Review official admission cycles for Undergraduate, Postgraduate, and International tracks, and compute your live merit aggregate.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <!-- Left 7 Cols: Crisp Ivory Institutional Timeline Card -->
+                <div class="cinematic-reveal lg:col-span-7 bg-white rounded-3xl border border-slate-200 shadow-[0_20px_50px_-15px_rgba(9,19,38,0.1)] p-6 sm:p-8">
+                    <div class="flex flex-wrap gap-2.5 border-b border-slate-200 pb-4 mb-6">
+                        <button onclick="switchAdmissionTab('ug')" id="tab-ug" class="adm-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-display font-bold bg-nust-navy text-white shadow-sm transition">
+                            Undergraduate (NET)
+                        </button>
+                        <button onclick="switchAdmissionTab('pg')" id="tab-pg" class="adm-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-display font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                            Postgraduate (MS / PhD)
+                        </button>
+                        <button onclick="switchAdmissionTab('intl')" id="tab-intl" class="adm-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-display font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                            International Track
+                        </button>
+                    </div>
+
+                    <div id="admission-tab-content">
+                        <!-- Dynamically rendered -->
+                    </div>
+                </div>
+
+                <!-- Right 5 Cols: Glowing Cockpit-Style NET Aggregate Calculator -->
+                <div class="cinematic-reveal lg:col-span-5 rounded-3xl bg-gradient-to-br from-nust-midnight via-nust-obsidian to-[#061229] text-white border border-nust-cyan/30 shadow-[0_25px_60px_-15px_rgba(4,9,20,0.65)] p-6 sm:p-8 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <span class="text-[11px] font-display font-bold uppercase tracking-widest text-nust-cyan">Merit Telemetry</span>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold mt-0.5">NET Aggregate Gauge</h3>
+                        </div>
+                        <!-- Circular SVG Telemetry Ring -->
+                        <div class="relative w-20 h-20 flex items-center justify-center">
+                            <svg class="w-full h-full -rotate-90" viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="33" stroke="rgba(255,255,255,0.12)" stroke-width="6" fill="none"/>
+                                <circle id="merit-arc" cx="40" cy="40" r="33" stroke="#F5B82E" stroke-width="6" stroke-linecap="round" fill="none" stroke-dasharray="207.3" stroke-dashoffset="41.5" class="transition-all duration-300"/>
+                            </svg>
+                            <span id="aggregate-ring-pct" class="absolute font-display font-bold text-sm text-nust-gold">80%</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-300 mb-5 leading-relaxed">
+                        Official Weightage: <strong class="text-nust-gold">75% NET</strong> + <strong class="text-nust-cyan">15% FSc</strong> + <strong class="text-white">10% Matric</strong> (or 25% O-Level Equivalence + 75% NET).
+                    </p>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Academic Qualification Track</label>
+                            <select id="calc-track" onchange="calculateAggregate()" class="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.06] border border-white/15 text-white text-xs sm:text-sm font-semibold focus:outline-none focus:border-nust-gold">
+                                <option value="fsc" class="bg-nust-obsidian">HSSC / FSc (10% Matric + 15% FSc + 75% NET)</option>
+                                <option value="alevel" class="bg-nust-obsidian">O/A-Levels (25% O-Level Equiv. + 75% NET)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span id="matric-label" class="text-slate-300">Matric / SSC (%)</span>
+                                <span id="matric-val-display" class="text-nust-gold font-display font-bold">90.0%</span>
+                            </div>
+                            <input id="calc-matric" type="range" min="50" max="100" step="0.5" value="90" oninput="calculateAggregate()" class="w-full">
+                        </div>
+
+                        <div id="fsc-input-group">
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-300">FSc / HSSC (%)</span>
+                                <span id="fsc-val-display" class="text-nust-gold font-display font-bold">86.0%</span>
+                            </div>
+                            <input id="calc-fsc" type="range" min="50" max="100" step="0.5" value="86" oninput="calculateAggregate()" class="w-full">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-300">NET Entry Test Score (Out of 200)</span>
+                                <span id="net-val-display" class="text-nust-cyan font-display font-bold">155 / 200</span>
+                            </div>
+                            <input id="calc-net" type="range" min="60" max="200" step="1" value="155" oninput="calculateAggregate()" class="w-full">
+                        </div>
+                    </div>
+
+                    <!-- Cockpit Merit Readout -->
+                    <div class="mt-6 p-4 rounded-2xl bg-white/[0.05] border border-white/15 flex items-center justify-between gap-3">
+                        <div>
+                            <p class="text-[11px] font-display uppercase tracking-widest text-slate-400">Computed Merit</p>
+                            <p id="aggregate-result" class="font-display text-3xl font-bold text-nust-gold mt-0.5">80.03%</p>
+                        </div>
+                        <div class="text-right">
+                            <span id="merit-badge" class="inline-block px-3 py-1 rounded-full text-xs font-display font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
+                                Highly Competitive
+                            </span>
+                            <p id="merit-hint" class="text-[11px] text-slate-300 mt-1.5 max-w-[165px]">Strong standing for SEECS, SMME & NBS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. NSTP & RESEARCH INNOVATION BENTO SHOWCASE ==================== -->
+    <section id="research" class="py-20 bg-nust-obsidian text-white border-b border-white/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="cinematic-reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="text-xs font-display font-bold uppercase tracking-[0.2em] text-nust-gold">Innovation Ecosystem</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Research & National Science & Technology Park (NSTP)</h2>
+                    <p class="text-slate-400 mt-2 max-w-2xl text-sm sm:text-base">
+                        Pakistan’s first university-hosted Hi-Tech Special Economic Zone bridging frontier research with global venture commercialization.
+                    </p>
+                </div>
+                <button onclick="triggerCelebration(); showToast('Downloading NUST R&D & NSTP Impact Report 2026...', '🚀')" class="self-start px-5 py-3 rounded-xl btn-glass-cinematic font-display font-bold text-xs sm:text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-file-arrow-down text-nust-gold"></i>
+                    <span>R&D Impact Report 2026</span>
+                </button>
+            </div>
+
+            <!-- Dramatic Bento Grid with Animated SVG Dioramas -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-7">
+                
+                <!-- Large Bento Card: NSTP Orbital Launch Scene -->
+                <div class="cinematic-reveal md:col-span-7 glass-card-dark rounded-3xl p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div class="grid sm:grid-cols-12 gap-4 items-center relative z-10">
+                        <div class="sm:col-span-8">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nust-gold/15 border border-nust-gold/40 text-nust-gold text-xs font-display font-bold mb-3">
+                                Pakistan's 1st Hi-Tech SEZ
+                            </span>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">National Science & Technology Park (NSTP)</h3>
+                            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+                                Spanning 70+ acres inside NUST H-12, NSTP houses 110+ anchor tech firms and high-growth startups across Artificial Intelligence, FinTech, AgriTech, and Clean Energy.
+                            </p>
+                        </div>
+
+                        <!-- Animated Orbital Rocket with Volumetric Plume -->
+                        <div class="sm:col-span-4 flex justify-center">
+                            <svg class="w-32 h-36 anim-rocket-thrust" viewBox="0 0 120 145" fill="none">
+                                <defs>
+                                    <linearGradient id="plumeGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#00D4FF"/>
+                                        <stop offset="55%" stop-color="#F5B82E"/>
+                                        <stop offset="100%" stop-color="#F5B82E" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Volumetric Exhaust Plume -->
+                                <path class="anim-plume" d="M47 104L60 142L73 104H47Z" fill="url(#plumeGrad)"/>
+                                <!-- Fins -->
+                                <path d="M40 78L22 102L43 96Z" fill="#0052B4" stroke="#00D4FF" stroke-width="1.5"/>
+                                <path d="M80 78L98 102L77 96Z" fill="#0052B4" stroke="#00D4FF" stroke-width="1.5"/>
+                                <!-- Fuselage -->
+                                <path d="M60 12C42 34 40 74 44 104H76C80 74 78 34 60 12Z" fill="#0D1E3A" stroke="#F5B82E" stroke-width="2"/>
+                                <path d="M60 12C50 24 45 36 44 44H76C75 36 70 24 60 12Z" fill="#F5B82E"/>
+                                <!-- Viewport -->
+                                <circle cx="60" cy="66" r="11" fill="#040914" stroke="#00D4FF" stroke-width="2"/>
+                                <circle cx="60" cy="66" r="5" fill="#00D4FF" fill-opacity="0.6"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 mt-7 pt-5 border-t border-white/10 relative z-10">
+                        <div>
+                            <p class="font-display text-2xl sm:text-3xl font-bold text-nust-gold">110+</p>
+                            <p class="text-xs text-slate-400">Tech Companies</p>
+                        </div>
+                        <div>
+                            <p class="font-display text-2xl sm:text-3xl font-bold text-nust-cyan">PKR 12B+</p>
+                            <p class="text-xs text-slate-400">R&D Investment</p>
+                        </div>
+                        <div>
+                            <p class="font-display text-2xl sm:text-3xl font-bold text-white">6,500+</p>
+                            <p class="text-xs text-slate-400">High-Tech Jobs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Stacked Bento Cards -->
+                <div class="cinematic-reveal md:col-span-5 space-y-6">
+                    <!-- Neural AI Core Card -->
+                    <div class="glass-card-dark rounded-3xl p-6 flex items-center gap-4">
+                        <svg class="w-20 h-20 shrink-0" viewBox="0 0 90 90" fill="none">
+                            <circle cx="45" cy="45" r="34" stroke="#00D4FF" stroke-opacity="0.25" stroke-width="1.5"/>
+                            <path class="anim-synapse" d="M22 45H68M45 22V68M29 29L61 61M61 29L29 61" stroke="#00D4FF" stroke-width="1.8"/>
+                            <circle cx="45" cy="45" r="12" fill="#091326" stroke="#F5B82E" stroke-width="2.2"/>
+                            <circle cx="45" cy="45" r="5" fill="#00D4FF"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-display font-bold text-lg text-nust-gold">National Center of AI (NCAI)</h4>
+                            <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                                Headquartered at SEECS, spearheading autonomous robotics, precision medicine AI, and smart vision research.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Patents & Clean Energy Reactor Card -->
+                    <div class="glass-card-dark rounded-3xl p-6 flex items-center gap-4">
+                        <svg class="w-20 h-20 shrink-0" viewBox="0 0 90 90" fill="none">
+                            <circle class="anim-orbit-cw" cx="45" cy="45" r="32" stroke="#F5B82E" stroke-width="1.5" stroke-dasharray="8 6"/>
+                            <circle class="anim-orbit-ccw" cx="45" cy="45" r="22" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="14 6"/>
+                            <circle cx="45" cy="45" r="9" fill="#F5B82E"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-display font-bold text-lg text-nust-cyan">240+ Patents & 25k+ Papers</h4>
+                            <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                                Leading Pakistan in WIPO patent filings, commercialized inventions, and international research grants.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. NATIONWIDE CAMPUSES TWILIGHT PANORAMA SWITCHER ==================== -->
+    <section id="campuses" class="py-20 bg-nust-midnight border-b border-white/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="cinematic-reveal text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-display font-bold uppercase tracking-[0.2em] text-nust-gold">National Footprint</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Explore NUST Campuses Across Pakistan</h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">
+                    Select any constituent campus to view its twilight architectural panorama, specialized laboratories, and residential facilities.
+                </p>
+            </div>
+
+            <!-- Campus Switcher Pills -->
+            <div class="cinematic-reveal flex flex-wrap justify-center gap-3 mb-10">
+                <button onclick="selectCampus('h12')" data-campus="h12" class="campus-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-bold btn-gold-cinematic">
+                    H-12 Islamabad
+                </button>
+                <button onclick="selectCampus('eme')" data-campus="eme" class="campus-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-semibold bg-white/[0.05] text-slate-200 border border-white/15 hover:border-nust-cyan/50 transition">
+                    CEME Rawalpindi
+                </button>
+                <button onclick="selectCampus('pnec')" data-campus="pnec" class="campus-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-semibold bg-white/[0.05] text-slate-200 border border-white/15 hover:border-nust-cyan/50 transition">
+                    PNEC Karachi
+                </button>
+                <button onclick="selectCampus('cae')" data-campus="cae" class="campus-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-semibold bg-white/[0.05] text-slate-200 border border-white/15 hover:border-nust-cyan/50 transition">
+                    CAE Risalpur
+                </button>
+                <button onclick="selectCampus('nbc')" data-campus="nbc" class="campus-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-semibold bg-white/[0.05] text-slate-200 border border-white/15 hover:border-nust-cyan/50 transition">
+                    NBC Quetta
+                </button>
+            </div>
+
+            <!-- Dynamic Cinematic Campus Panorama Card -->
+            <div id="campus-display" class="cinematic-reveal glass-panel rounded-3xl overflow-hidden grid lg:grid-cols-12">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 8. NEWS, EVENTS & OFFICIAL CIRCULARS ==================== -->
+    <section id="news" class="py-20 bg-nust-obsidian">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="cinematic-reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-xs font-display font-bold uppercase tracking-[0.2em] text-nust-cyan">Campus Chronicles</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">News, Events & Academic Notices</h2>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterNews('All')" data-news="All" class="news-filter-btn px-4 py-2 rounded-xl text-xs font-display font-bold bg-nust-gold text-nust-obsidian transition">All Updates</button>
+                    <button onclick="filterNews('Academic Notice')" data-news="Academic Notice" class="news-filter-btn px-4 py-2 rounded-xl text-xs font-display font-semibold bg-white/[0.05] text-slate-300 border border-white/10 hover:border-white/30 transition">Academic Notices</button>
+                    <button onclick="filterNews('Event')" data-news="Event" class="news-filter-btn px-4 py-2 rounded-xl text-xs font-display font-semibold bg-white/[0.05] text-slate-300 border border-white/10 hover:border-white/30 transition">Events</button>
+                    <button onclick="filterNews('Research')" data-news="Research" class="news-filter-btn px-4 py-2 rounded-xl text-xs font-display font-semibold bg-white/[0.05] text-slate-300 border border-white/10 hover:border-white/30 transition">Research</button>
+                </div>
+            </div>
+
+            <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                <!-- Dynamically rendered -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 9. PRESTIGIOUS INSTITUTIONAL FOOTER ==================== -->
+    <footer id="footer" class="bg-[#02050C] text-slate-400 pt-16 pb-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-nust-gold to-amber-600 flex items-center justify-center font-serif font-bold text-nust-obsidian text-lg">N</div>
+                        <div>
+                            <h3 class="font-serif font-bold text-xl text-white tracking-wider">NUST</h3>
+                            <p class="text-xs text-nust-gold">Defining Futures</p>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        National University of Sciences & Technology, Sector H-12, Islamabad, Pakistan. Chartered by the Government of Pakistan and accredited by HEC & PEC.
+                    </p>
+                    <div class="space-y-2 text-xs text-slate-300 pt-1">
+                        <p><i class="fa-solid fa-phone text-nust-gold w-5"></i> UAN: +92-51-111-11-6878 (NUST)</p>
+                        <p><i class="fa-solid fa-envelope text-nust-cyan w-5"></i> admissions@nust.edu.pk</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-xs font-display font-bold text-white uppercase tracking-widest">Portals</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><button onclick="openApplyModal()" class="hover:text-nust-gold transition">UG Admissions Portal</button></li>
+                        <li><button onclick="openApplyModal()" class="hover:text-nust-gold transition">PG Admissions Portal</button></li>
+                        <li><button onclick="showToast('Launching Qalam LMS...', '🎓')" class="hover:text-nust-gold transition">Qalam LMS</button></li>
+                        <li><a href="#research" class="hover:text-nust-gold transition">NSTP Tech Park</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-xs font-display font-bold text-white uppercase tracking-widest">Campuses</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="#campuses" onclick="selectCampus('h12')" class="hover:text-nust-cyan transition">H-12 Main Campus, Islamabad</a></li>
+                        <li><a href="#campuses" onclick="selectCampus('eme')" class="hover:text-nust-cyan transition">CEME, Rawalpindi</a></li>
+                        <li><a href="#campuses" onclick="selectCampus('pnec')" class="hover:text-nust-cyan transition">PNEC, Karachi</a></li>
+                        <li><a href="#campuses" onclick="selectCampus('cae')" class="hover:text-nust-cyan transition">CAE, Risalpur</a></li>
+                        <li><a href="#campuses" onclick="selectCampus('nbc')" class="hover:text-nust-cyan transition">NBC, Quetta</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-xs font-display font-bold text-white uppercase tracking-widest">Admissions Dispatch</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Receive official NET schedules, merit list announcements, and research symposia alerts.</p>
+                    <form onsubmit="handleNewsletter(event)" class="flex gap-2">
+                        <input id="newsletter-email" type="email" required placeholder="Enter your email" class="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.06] border border-white/15 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-nust-gold">
+                        <button type="submit" class="px-4 py-2.5 rounded-xl btn-gold-cinematic font-display font-bold text-xs shrink-0">
+                            Join
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 National University of Sciences & Technology (NUST). All Rights Reserved.</p>
+                <div class="flex items-center gap-3 font-display">
+                    <span class="px-3 py-1 rounded-full bg-white/[0.04] text-nust-gold border border-white/10">HEC Recognized</span>
+                    <span class="px-3 py-1 rounded-full bg-white/[0.04] text-nust-cyan border border-white/10">PEC Accredited</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== CINEMATIC MODALS & TOAST ==================== -->
+
+    <!-- 1. Program Details & Curriculum Modal -->
+    <div id="program-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+        <div class="glass-panel rounded-3xl max-w-2xl w-full border border-white/20 overflow-hidden">
+            <div class="bg-gradient-to-r from-nust-midnight to-nust-obsidian p-6 flex items-start justify-between border-b border-white/10">
+                <div>
+                    <span id="modal-prog-school" class="text-xs font-display font-bold uppercase tracking-widest text-nust-gold">SEECS — H-12 Islamabad</span>
+                    <h3 id="modal-prog-title" class="font-serif text-2xl font-bold text-white mt-1">BS Computer Science</h3>
+                </div>
+                <button onclick="closeProgramModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-nust-gold hover:text-nust-obsidian text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="p-3 rounded-2xl bg-white/[0.04] border border-white/10">
+                        <p class="text-[11px] text-slate-400">Duration</p>
+                        <p id="modal-prog-duration" class="text-xs sm:text-sm font-bold text-white mt-0.5">4 Years</p>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-white/[0.04] border border-white/10">
+                        <p class="text-[11px] text-slate-400">Entry Test</p>
+                        <p id="modal-prog-test" class="text-xs sm:text-sm font-bold text-nust-cyan mt-0.5">NET / SAT</p>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-nust-gold/15 border border-nust-gold/35">
+                        <p class="text-[11px] text-nust-gold">Semester Fee</p>
+                        <p id="modal-prog-fee" class="text-xs sm:text-sm font-bold text-white mt-0.5">PKR 178,500</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-display font-bold uppercase tracking-widest text-nust-cyan mb-2">Program Overview & Accreditation</h4>
+                    <p id="modal-prog-desc" class="text-sm text-slate-300 leading-relaxed"></p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-display font-bold uppercase tracking-widest text-nust-cyan mb-2">Core Curriculum Modules</h4>
+                    <div id="modal-prog-modules" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <div class="pt-4 border-t border-white/10 flex flex-wrap justify-end gap-3">
+                    <button onclick="closeProgramModal()" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-200 font-display font-bold text-xs transition">Close</button>
+                    <button onclick="closeProgramModal(); openApplyModal();" class="px-6 py-2.5 rounded-xl btn-gold-cinematic font-display font-bold text-xs">
+                        Apply for This Program
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Apply Now (NET Registration) Modal -->
+    <div id="apply-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+        <div class="glass-panel rounded-3xl max-w-lg w-full border border-white/20 overflow-hidden">
+            <div class="bg-gradient-to-r from-nust-midnight to-nust-obsidian p-6 flex items-center justify-between border-b border-white/10">
+                <div>
+                    <span class="text-xs font-display font-bold uppercase tracking-widest text-nust-gold">Admissions Portal</span>
+                    <h3 class="font-serif text-xl font-bold text-white mt-0.5">Initiate Your NUST Application</h3>
+                </div>
+                <button onclick="closeApplyModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-nust-gold hover:text-nust-obsidian text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form onsubmit="submitQuickApplication(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name (As per Matric / CNIC)</label>
+                    <input type="text" required placeholder="e.g. Zayd Mahmood" class="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.06] border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-nust-gold">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
+                        <input type="email" required placeholder="applicant@domain.com" class="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.06] border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-nust-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">CNIC / B-Form Number</label>
+                        <input type="text" required placeholder="61101-XXXXXXX-X" class="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.06] border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-nust-gold">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Admission Track</label>
+                    <select class="w-full px-3.5 py-2.5 rounded-xl bg-nust-midnight border border-white/15 text-sm text-white focus:outline-none focus:border-nust-gold">
+                        <option>Undergraduate — NET-2027 (Islamabad / Karachi / Quetta)</option>
+                        <option>Undergraduate — SAT / ACT National or International Seat</option>
+                        <option>Postgraduate — MS / MPhil Admissions</option>
+                        <option>Doctoral — PhD Research Track</option>
+                    </select>
+                </div>
+                <div class="rounded-xl bg-nust-cyan/10 border border-nust-cyan/30 p-3 text-xs text-slate-200">
+                    Submitting generates your instant NUST Applicant Tracking ID for NET test center scheduling.
+                </div>
+                <div class="pt-2 flex justify-end gap-3">
+                    <button type="button" onclick="closeApplyModal()" class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-xs font-display font-bold text-slate-300">Cancel</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl btn-gold-cinematic font-display font-bold text-xs">
+                        Generate Applicant ID
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 3. Global Search Modal -->
+    <div id="search-modal" class="fixed inset-0 z-50 hidden items-start justify-center bg-black/80 backdrop-blur-md pt-24 p-4">
+        <div class="glass-panel rounded-2xl max-w-xl w-full border border-white/20 overflow-hidden">
+            <div class="p-4 border-b border-white/10 flex items-center gap-3 bg-white/[0.03]">
+                <i class="fa-solid fa-magnifying-glass text-nust-cyan"></i>
+                <input id="global-search-input" oninput="handleGlobalSearch(this.value)" type="text" placeholder="Search programs, schools (SEECS, NBS), campuses..." class="w-full bg-transparent text-sm text-white placeholder-slate-400 focus:outline-none">
+                <button onclick="closeSearchModal()" class="text-[11px] font-mono px-2 py-1 rounded bg-white/10 text-slate-300">ESC</button>
+            </div>
+            <div id="global-search-results" class="p-4 max-h-80 overflow-y-auto space-y-2 text-sm">
+                <p class="text-xs text-slate-400">Type to search across NUST degree programs, schools, and admissions...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cinematic Toast Notification -->
+    <div id="toast-box" class="fixed bottom-5 right-5 z-50 hidden items-center gap-3 px-5 py-3.5 rounded-2xl glass-panel border border-nust-gold/50 text-white text-xs sm:text-sm font-display font-semibold shadow-2xl">
+        <span id="toast-emoji" class="text-base">✨</span>
+        <span id="toast-message">Action completed</span>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ENGINE ==================== -->
+    <script>
+        // -------------------- PRELOADER & HERO REVEAL --------------------
+        window.addEventListener('load', () => {
+            const bar = document.getElementById('preloader-bar');
+            if (bar) bar.style.width = '100%';
+            setTimeout(() => {
+                const preloader = document.getElementById('cinematic-preloader');
+                if (preloader) preloader.classList.add('curtain-up');
+                document.getElementById('hero-section').classList.add('hero-loaded');
+            }, 650);
+        });
+
+        // -------------------- CURSOR SPOTLIGHT --------------------
+        const spotlight = document.getElementById('cursor-spotlight');
+        document.addEventListener('mousemove', (e) => {
+            if (spotlight) {
+                spotlight.style.left = `${e.clientX}px`;
+                spotlight.style.top = `${e.clientY}px`;
+            }
+        });
+
+        // -------------------- HERO STARDUST & CONSTELLATION CANVAS --------------------
+        const starCanvas = document.getElementById('hero-stardust-canvas');
+        const starCtx = starCanvas.getContext('2d');
+        let stars = [];
+
+        function initStardust() {
+            starCanvas.width = starCanvas.offsetWidth;
+            starCanvas.height = starCanvas.offsetHeight;
+            stars = [];
+            const count = Math.min(75, Math.floor(starCanvas.width / 18));
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * starCanvas.width,
+                    y: Math.random() * starCanvas.height,
+                    r: 0.8 + Math.random() * 1.8,
+                    vx: (Math.random() - 0.5) * 0.28,
+                    vy: -0.12 - Math.random() * 0.25,
+                    gold: Math.random() > 0.45,
+                    alpha: 0.25 + Math.random() * 0.65
+                });
+            }
+        }
+
+        function animateStardust() {
+            starCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+            for (let i = 0; i < stars.length; i++) {
+                const s = stars[i];
+                s.x += s.vx;
+                s.y += s.vy;
+                if (s.y < -10) s.y = starCanvas.height + 10;
+                if (s.x < -10) s.x = starCanvas.width + 10;
+                if (s.x > starCanvas.width + 10) s.x = -10;
+
+                starCtx.beginPath();
+                starCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                starCtx.fillStyle = s.gold
+                    ? `rgba(245, 184, 46, ${s.alpha})`
+                    : `rgba(0, 212, 255, ${s.alpha})`;
+                starCtx.fill();
+
+                // Connect nearby particles with delicate constellation lines
+                for (let j = i + 1; j < stars.length; j++) {
+                    const s2 = stars[j];
+                    const dx = s.x - s2.x;
+                    const dy = s.y - s2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 115) {
+                        starCtx.beginPath();
+                        starCtx.moveTo(s.x, s.y);
+                        starCtx.lineTo(s2.x, s2.y);
+                        starCtx.strokeStyle = `rgba(0, 212, 255, ${(1 - dist / 115) * 0.14})`;
+                        starCtx.lineWidth = 0.8;
+                        starCtx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateStardust);
+        }
+        window.addEventListener('resize', initStardust);
+        initStardust();
+        animateStardust();
+
+        // -------------------- DIORAMA INSIGHTS CYCLER --------------------
+        const dioramaInsights = [
+            '<strong class="text-nust-gold">NUST Insight:</strong> NET carries 75% merit weightage with zero negative marking.',
+            '<strong class="text-nust-cyan">Global Prestige:</strong> NUST ranks #127 globally in Engineering & Technology (QS Rankings).',
+            '<strong class="text-nust-gold">Innovation Hub:</strong> NSTP at H-12 incubates 110+ high-tech startups & R&D centers.',
+            '<strong class="text-nust-cyan">Merit Telemetry:</strong> Score 78%+ in the Merit Gauge below to trigger celebratory telemetry!'
+        ];
+        let insightIdx = 0;
+        function cycleInsight() {
+            insightIdx = (insightIdx + 1) % dioramaInsights.length;
+            document.getElementById('diorama-insight-text').innerHTML = dioramaInsights[insightIdx];
+        }
+
+        // -------------------- GOLDEN & CYAN PARTICLE CELEBRATION --------------------
+        const celebCanvas = document.getElementById('celebration-canvas');
+        const celebCtx = celebCanvas.getContext('2d');
+        let celebParticles = [];
+        let celebAnim = null;
+
+        function resizeCeleb() {
+            celebCanvas.width = window.innerWidth;
+            celebCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCeleb);
+        resizeCeleb();
+
+        function triggerCelebration() {
+            const palette = ['#F5B82E', '#00D4FF', '#FFF0B3', '#38BDF8', '#FFFFFF'];
+            for (let i = 0; i < 85; i++) {
+                celebParticles.push({
+                    x: window.innerWidth * (0.3 + Math.random() * 0.4),
+                    y: window.innerHeight * 0.48,
+                    vx: (Math.random() - 0.5) * 13,
+                    vy: (Math.random() - 1.15) * 13,
+                    size: 4 + Math.random() * 5,
+                    color: palette[Math.floor(Math.random() * palette.length)],
+                    life: 90 + Math.random() * 35
+                });
+            }
+            if (!celebAnim) animateCelebration();
+        }
+
+        function animateCelebration() {
+            celebCtx.clearRect(0, 0, celebCanvas.width, celebCanvas.height);
+            celebParticles.forEach((p, idx) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.32;
+                p.life -= 1;
+
+                celebCtx.beginPath();
+                celebCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                celebCtx.fillStyle = p.color;
+                celebCtx.shadowBlur = 10;
+                celebCtx.shadowColor = p.color;
+                celebCtx.fill();
+
+                if (p.life <= 0) celebParticles.splice(idx, 1);
+            });
+            celebCtx.shadowBlur = 0;
+
+            if (celebParticles.length > 0) {
+                celebAnim = requestAnimationFrame(animateCelebration);
+            } else {
+                celebAnim = null;
+            }
+        }
+
+        // -------------------- INSTITUTIONAL DATA --------------------
+        const programsData = [
+            {
+                id: 1,
+                icon: "fa-microchip",
+                accent: "text-nust-cyan",
+                title: "BS Computer Science",
+                school: "SEECS",
+                discipline: "Computing",
+                level: "Undergraduate",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "4 Years (8 Semesters)",
+                test: "NET-Engineering / ICS / SAT",
+                fee: "PKR 178,500 / Sem",
+                description: "Accredited by NCEAC, BSCS at SEECS equips students with deep expertise in algorithms, distributed systems, software engineering, and machine intelligence.",
+                modules: ["Data Structures", "Operating Systems", "Machine Learning", "Distributed Systems", "Compiler Design"]
+            },
+            {
+                id: 2,
+                icon: "fa-brain",
+                accent: "text-nust-gold",
+                title: "BS Artificial Intelligence",
+                school: "SEECS",
+                discipline: "Computing",
+                level: "Undergraduate",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "4 Years (8 Semesters)",
+                test: "NET-Engineering / ICS",
+                fee: "PKR 178,500 / Sem",
+                description: "Designed in collaboration with the National Center of Artificial Intelligence (NCAI), focusing on neural networks, computer vision, NLP, and autonomous robotics.",
+                modules: ["Deep Learning", "Computer Vision", "Natural Language Processing", "Reinforcement Learning", "AI Ethics"]
+            },
+            {
+                id: 3,
+                icon: "fa-gears",
+                accent: "text-nust-cyan",
+                title: "BE Mechanical Engineering",
+                school: "SMME",
+                discipline: "Engineering",
+                level: "Undergraduate",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "4 Years (8 Semesters)",
+                test: "NET-Engineering / SAT",
+                fee: "PKR 178,500 / Sem",
+                description: "PEC Washington Accord accredited degree emphasizing thermo-fluids, CAD/CAM manufacturing, industrial automation, and sustainable energy systems.",
+                modules: ["Thermodynamics", "Fluid Mechanics", "Machine Design", "Control Systems", "Robotics & Mechatronics"]
+            },
+            {
+                id: 4,
+                icon: "fa-chart-line",
+                accent: "text-emerald-400",
+                title: "Bachelor of Business Admin (BBA)",
+                school: "NBS",
+                discipline: "Business",
+                level: "Undergraduate",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "4 Years (8 Semesters)",
+                test: "NET-Business / SAT",
+                fee: "PKR 195,000 / Sem",
+                description: "Pakistan’s premier business degree developing entrepreneurial leaders with strong analytical foundations in FinTech, strategy, and global supply chains.",
+                modules: ["Financial Accounting", "Corporate Finance", "Marketing Analytics", "Strategic Management", "Venture Creation"]
+            },
+            {
+                id: 5,
+                icon: "fa-globe",
+                accent: "text-purple-300",
+                title: "BS Economics",
+                school: "S3H",
+                discipline: "Social Sciences",
+                level: "Undergraduate",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "4 Years (8 Semesters)",
+                test: "NET-Business & Social Sciences",
+                fee: "PKR 158,000 / Sem",
+                description: "Quantitative and policy-driven curriculum preparing economists for central banks, international development agencies, and data analytics roles.",
+                modules: ["Microeconomic Theory", "Macroeconomics", "Econometrics", "Public Policy", "Game Theory"]
+            },
+            {
+                id: 6,
+                icon: "fa-compass-drafting",
+                accent: "text-rose-300",
+                title: "Bachelor of Architecture (B.Arch)",
+                school: "SADA",
+                discipline: "Architecture",
+                level: "Undergraduate",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "5 Years (10 Semesters)",
+                test: "NET-Architecture (Aptitude)",
+                fee: "PKR 182,000 / Sem",
+                description: "PCATP accredited 5-year studio-intensive program blending sustainable urbanism, parametric design, and cultural heritage conservation.",
+                modules: ["Design Studios", "Parametric Fabrication", "Sustainable Urbanism", "Structural Systems"]
+            },
+            {
+                id: 7,
+                icon: "fa-dna",
+                accent: "text-teal-300",
+                title: "BS Applied Biosciences",
+                school: "ASAB",
+                discipline: "Natural Sciences",
+                level: "Undergraduate",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "4 Years (8 Semesters)",
+                test: "NET-Applied Sciences",
+                fee: "PKR 168,000 / Sem",
+                description: "Hands-on laboratory training in molecular genetics, bioinformatics, biopharmaceuticals, and clinical diagnostics.",
+                modules: ["Molecular Biology", "Genetic Engineering", "Bioinformatics", "Immunology", "Bioprocess Tech"]
+            },
+            {
+                id: 8,
+                icon: "fa-network-wired",
+                accent: "text-nust-cyan",
+                title: "MS Data Science & AI",
+                school: "SEECS",
+                discipline: "Computing",
+                level: "Masters",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "2 Years (4 Semesters)",
+                test: "GNET / GAT-General",
+                fee: "PKR 132,000 / Sem",
+                description: "Advanced postgraduate degree tailored for researchers and engineers building large-scale predictive and generative AI pipelines.",
+                modules: ["Statistical Learning", "Big Data Analytics", "Deep Generative Models", "MS Thesis"]
+            },
+            {
+                id: 9,
+                icon: "fa-robot",
+                accent: "text-nust-gold",
+                title: "PhD Robotics & Intelligent Systems",
+                school: "SMME",
+                discipline: "Engineering",
+                level: "PhD",
+                campus: "H-12 Main Campus, Islamabad",
+                duration: "3–5 Years",
+                test: "GAT-Subject / GRE + Interview",
+                fee: "Full Research Fellowships",
+                description: "Doctoral research program supported by funded robotics labs at SMME and NSTP, focusing on aerial drones and human-robot interaction.",
+                modules: ["Advanced Control Theory", "Autonomous Navigation", "Doctoral Dissertation"]
+            }
+        ];
+
+        const admissionsTabsData = {
+            ug: {
+                title: "Undergraduate Admissions (Fall Intake)",
+                badge: "NET Series 1 – 4 & SAT",
+                steps: [
+                    { step: "01", name: "Online Registration & Profile", date: "Nov – June", detail: "Register on ugadmissions.nust.edu.pk and select your preferred NET test series." },
+                    { step: "02", name: "NUST Entry Test (NET)", date: "Dec, Feb, Apr & Jul", detail: "Computer-based test in Islamabad, or paper-based in Karachi, Quetta & Gilgit." },
+                    { step: "03", name: "Merit Position & Preferences", date: "August", detail: "Finalize degree preferences online following the release of aggregate merit positions." },
+                    { step: "04", name: "Selection Lists & Orientation", date: "Aug – Sep", detail: "Download provisional offer letter and join Orientation Week at Sector H-12." }
+                ]
+            },
+            pg: {
+                title: "Postgraduate Admissions (MS / MBA / PhD)",
+                badge: "GNET / GAT / GRE",
+                steps: [
+                    { step: "01", name: "Online PG Portal Application", date: "March – May", detail: "Submit academic transcripts, statement of purpose, and test credentials." },
+                    { step: "02", name: "GNET / GAT & Faculty Interview", date: "June – July", detail: "PhD candidates appear for subject assessment and departmental research interview." },
+                    { step: "03", name: "Merit List & Research Fellowships", date: "August", detail: "Top merit scholars qualify for NUST Teaching & Research Assistantships." }
+                ]
+            },
+            intl: {
+                title: "International & Overseas Pakistani Track",
+                badge: "SAT / ACT / GRE",
+                steps: [
+                    { step: "01", name: "International Seat Application", date: "Jan – July", detail: "Dedicated quota for foreign nationals and overseas Pakistanis holding valid SAT/ACT." },
+                    { step: "02", name: "IBCC Equivalence Submission", date: "August", detail: "Submit O/A-Level or High School Diploma equivalence certificates." },
+                    { step: "03", name: "Visa & On-Campus Housing", date: "September", detail: "Guaranteed international hostel accommodation and dedicated International Office support." }
+                ]
+            }
+        };
+
+        // Custom Twilight Architectural Panoramas for All 5 NUST Campuses
+        const campusesData = {
+            h12: {
+                name: "NUST Main Campus — Sector H-12, Islamabad",
+                tagline: "707-Acre Flagship Green Campus at the Margalla Foothills",
+                svgScene: `
+                    <svg viewBox="0 0 460 340" class="w-full h-full" fill="none">
+                        <defs>
+                            <linearGradient id="h12Sky" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#050D1F"/>
+                                <stop offset="65%" stop-color="#0D264D"/>
+                                <stop offset="100%" stop-color="#173D73"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="460" height="340" fill="url(#h12Sky)"/>
+                        <!-- Crescent Moon & Stars -->
+                        <circle cx="385" cy="54" r="16" fill="#F5B82E" fill-opacity="0.9"/>
+                        <circle cx="392" cy="49" r="14" fill="#071229"/>
+                        <circle cx="95" cy="48" r="1.5" fill="#FFF"/>
+                        <circle cx="180" cy="36" r="2" fill="#00D4FF"/>
+                        <circle cx="290" cy="62" r="1.5" fill="#F5B82E"/>
+                        <!-- Margalla Hills Twilight -->
+                        <path d="M0 210L105 125L205 195L320 115L460 205V340H0V210Z" fill="#081730" stroke="#00D4FF" stroke-opacity="0.25" stroke-width="1.5"/>
+                        <path d="M0 235L145 160L275 230L390 155L460 215V340H0V235Z" fill="#061226"/>
+                        <!-- Central Clocktower -->
+                        <rect x="195" y="122" width="70" height="150" fill="#0E2244" stroke="#F5B82E" stroke-width="2"/>
+                        <path d="M186 122L230 85L274 122H186Z" fill="#09162E" stroke="#F5B82E" stroke-width="2"/>
+                        <circle cx="230" cy="154" r="17" fill="#040914" stroke="#F5B82E" stroke-width="2.2"/>
+                        <path d="M230 154V143M230 154L238 158" stroke="#00D4FF" stroke-width="2" stroke-linecap="round"/>
+                        <!-- Flanking Academic Halls -->
+                        <rect x="95" y="182" width="100" height="90" fill="#0B1B38" stroke="#00D4FF" stroke-opacity="0.4" stroke-width="1.5"/>
+                        <rect x="265" y="182" width="100" height="90" fill="#0B1B38" stroke="#00D4FF" stroke-opacity="0.4" stroke-width="1.5"/>
+                        <g fill="#F5B82E" fill-opacity="0.65">
+                            <rect x="112" y="198" width="14" height="18" rx="2"/><rect x="138" y="198" width="14" height="18" rx="2"/><rect x="164" y="198" width="14" height="18" rx="2"/>
+                            <rect x="282" y="198" width="14" height="18" rx="2"/><rect x="308" y="198" width="14" height="18" rx="2"/><rect x="334" y="198" width="14" height="18" rx="2"/>
+                        </g>
+                        <!-- Reflecting Promenade -->
+                        <rect x="0" y="272" width="460" height="68" fill="#040914"/>
+                        <ellipse cx="230" cy="304" rx="110" ry="10" fill="#00D4FF" fill-opacity="0.16"/>
+                    </svg>
+                `,
+                description: "The nerve center of NUST housing 11 constituent schools, the National Science & Technology Park (NSTP), Central Library, Olympic Sports Complex, and 18+ residential hostels.",
+                highlights: [
+                    { icon: "fa-building-user", title: "18+ On-Campus Hostels", sub: "Separate secure residences for male & female scholars" },
+                    { icon: "fa-trophy", title: "Olympic Sports Complex", sub: "Cricket, football, indoor gym, bowling & tennis courts" },
+                    { icon: "fa-book-open", title: "Central Digital Library", sub: "24/7 study halls & 500,000+ research journals" },
+                    { icon: "fa-users-gear", title: "45+ Student Societies", sub: "Robotics, Dramatics, Debate, IEEE, ACM & NCSC" }
+                ]
+            },
+            eme: {
+                name: "College of Electrical & Mechanical Engineering (CEME)",
+                tagline: "Peshawar Road, Rawalpindi — Robotics & Engineering Heritage",
+                svgScene: `
+                    <svg viewBox="0 0 460 340" class="w-full h-full" fill="none">
+                        <rect width="460" height="340" fill="#071124"/>
+                        <circle cx="380" cy="60" r="22" fill="#F5B82E" fill-opacity="0.25"/>
+                        <rect x="80" y="145" width="300" height="128" rx="6" fill="#0E2244" stroke="#00D4FF" stroke-width="1.8"/>
+                        <rect x="80" y="128" width="300" height="18" fill="#040914" stroke="#F5B82E" stroke-width="1.8"/>
+                        <circle cx="230" cy="205" r="34" fill="#040914" stroke="#00D4FF" stroke-width="2.2"/>
+                        <circle cx="230" cy="205" r="14" stroke="#F5B82E" stroke-width="2.2"/>
+                        <rect x="0" y="273" width="460" height="67" fill="#040914"/>
+                    </svg>
+                `,
+                description: "Renowned for disciplined, hands-on engineering education in Mechatronics, Computer, Electrical, and Mechanical Engineering with state-of-the-art robotics workshops.",
+                highlights: [
+                    { icon: "fa-robot", title: "National Robotics Olympiad", sub: "Home to Pakistan's premier student robotics teams" },
+                    { icon: "fa-gears", title: "Advanced CNC & Mechatronics", sub: "Embedded systems & industrial automation labs" },
+                    { icon: "fa-house-chimney", title: "Residential Campus", sub: "Full boarding hostels and athletic grounds" },
+                    { icon: "fa-certificate", title: "PEC Level-II Accredited", sub: "Globally recognized Washington Accord degrees" }
+                ]
+            },
+            pnec: {
+                name: "Pakistan Navy Engineering College (PNEC)",
+                tagline: "Karachi — Coastal & Maritime Engineering Hub",
+                svgScene: `
+                    <svg viewBox="0 0 460 340" class="w-full h-full" fill="none">
+                        <rect width="460" height="340" fill="#061329"/>
+                        <path d="M125 215H335L305 255H155L125 215Z" fill="#0E2244" stroke="#F5B82E" stroke-width="2"/>
+                        <rect x="175" y="175" width="95" height="40" fill="#091730" stroke="#00D4FF" stroke-width="1.8"/>
+                        <rect x="208" y="142" width="22" height="33" fill="#F5B82E"/>
+                        <path d="M0 255C50 242 100 268 150 255C200 242 250 268 300 255C350 242 400 268 460 255V340H0V255Z" fill="#0052B4" fill-opacity="0.55" stroke="#00D4FF" stroke-width="2"/>
+                    </svg>
+                `,
+                description: "Strategically located in Pakistan’s industrial capital Karachi, offering premier programs in Naval Architecture, Mechanical, Electrical, and Management Information Systems.",
+                highlights: [
+                    { icon: "fa-ship", title: "Naval Architecture & Marine", sub: "Specialized maritime & hydrodynamic testing labs" },
+                    { icon: "fa-industry", title: "Corporate & Industrial Ties", sub: "Direct internships across Karachi's industrial hubs" },
+                    { icon: "fa-car-side", title: "Formula Student Team", sub: "Award-winning student electric & combustion race cars" },
+                    { icon: "fa-satellite-dish", title: "Smart Coastal Campus", sub: "Modern auditoriums, labs & student activity center" }
+                ]
+            },
+            cae: {
+                name: "College of Aeronautical Engineering (CAE)",
+                tagline: "Risalpur — Center of Excellence in Aerospace & Avionics",
+                svgScene: `
+                    <svg viewBox="0 0 460 340" class="w-full h-full" fill="none">
+                        <rect width="460" height="340" fill="#050F24"/>
+                        <g transform="translate(135, 95) rotate(-12)">
+                            <path d="M10 45L150 24L188 45L150 66L10 45Z" fill="#0E2244" stroke="#00D4FF" stroke-width="2.2"/>
+                            <path d="M70 35L102 4L124 32" fill="#0052B4" stroke="#F5B82E" stroke-width="1.8"/>
+                            <path d="M70 55L102 86L124 58" fill="#0052B4" stroke="#F5B82E" stroke-width="1.8"/>
+                            <ellipse cx="144" cy="45" rx="16" ry="7" fill="#F5B82E"/>
+                        </g>
+                        <rect x="0" y="270" width="460" height="70" fill="#040914"/>
+                    </svg>
+                `,
+                description: "Offering specialized BE and MS degrees in Aerospace Engineering and Avionics Engineering with wind tunnels, propulsion labs, and flight simulation facilities.",
+                highlights: [
+                    { icon: "fa-jet-fighter-up", title: "Supersonic Wind Tunnels", sub: "Dedicated aerodynamics and propulsion testing labs" },
+                    { icon: "fa-satellite", title: "Avionics & Radar Labs", sub: "Cutting-edge guidance, navigation & control research" },
+                    { icon: "fa-tree", title: "Scenic Residential Campus", sub: "Complete athletic, flying club & boarding facilities" },
+                    { icon: "fa-award", title: "PEC Accredited", sub: "Top aerospace engineering institution in South Asia" }
+                ]
+            },
+            nbc: {
+                name: "NUST Balochistan Campus (NBC)",
+                tagline: "Quetta — Empowering Innovation in Balochistan",
+                svgScene: `
+                    <svg viewBox="0 0 460 340" class="w-full h-full" fill="none">
+                        <rect width="460" height="340" fill="#081122"/>
+                        <path d="M0 220L120 105L230 210L345 95L460 205V340H0V220Z" fill="#10213E" stroke="#F5B82E" stroke-opacity="0.35" stroke-width="1.8"/>
+                        <rect x="125" y="175" width="210" height="98" rx="6" fill="#0B1933" stroke="#00D4FF" stroke-width="1.8"/>
+                        <path d="M115 175L230 130L345 175H115Z" fill="#040914" stroke="#F5B82E" stroke-width="2"/>
+                        <rect x="0" y="273" width="460" height="67" fill="#040914"/>
+                    </svg>
+                `,
+                description: "Bringing NUST’s world-class quality standards to Quetta with specialized degrees in Civil Engineering, Mining Engineering, and Computer Science.",
+                highlights: [
+                    { icon: "fa-mountain", title: "Mining & Civil Engineering", sub: "Tailored to regional infrastructure & mineral development" },
+                    { icon: "fa-laptop-code", title: "Computing & IT Labs", sub: "High-speed fiber connectivity & modern labs" },
+                    { icon: "fa-hand-holding-dollar", title: "Generous Financial Aid", sub: "Need-based scholarships for deserving students" },
+                    { icon: "fa-school", title: "Modern Campus Facilities", sub: "Purpose-built classrooms, library & hostels" }
+                ]
+            }
+        };
+
+        const newsData = [
+            {
+                id: 1,
+                category: "Academic Notice",
+                date: "Nov 20, 2026",
+                title: "NET-2027 Series-1 Registration & Test Center Selection Schedule",
+                summary: "Online registration for NUST Entry Test (NET) Series-1 is now live for all undergraduate engineering, computing, business, and applied sciences programs."
+            },
+            {
+                id: 2,
+                category: "Event",
+                date: "Nov 15, 2026",
+                title: "NUST International Olympiad & AI Hackathon 2026 at H-12",
+                summary: "Over 1,800 innovators from 60+ universities converged at NUST H-12 for 48 hours of generative AI prototyping, robotics battles, and venture pitching."
+            },
+            {
+                id: 3,
+                category: "Research",
+                date: "Nov 08, 2026",
+                title: "NSTP Startup Secures $3.5M Seed Funding for Clean Energy Grid AI",
+                summary: "Incubated at the National Science & Technology Park, GridSense AI expands smart microgrid deployments across industrial estates."
+            }
+        ];
+
+        // -------------------- PROGRAM EXPLORER & 3D TILT --------------------
+        let currentLevel = 'All';
+        let currentSchool = 'All';
+        let currentKeyword = '';
+        let currentDiscipline = 'All';
+
+        function renderPrograms() {
+            const grid = document.getElementById('programs-grid');
+            const filtered = programsData.filter(prog => {
+                const matchLevel = currentLevel === 'All' || prog.level === currentLevel;
+                const matchSchool = currentSchool === 'All' || prog.school === currentSchool;
+                const matchDiscipline = currentDiscipline === 'All' || prog.discipline === currentDiscipline;
+                const matchKeyword = currentKeyword === '' ||
+                    prog.title.toLowerCase().includes(currentKeyword.toLowerCase()) ||
+                    prog.school.toLowerCase().includes(currentKeyword.toLowerCase()) ||
+                    prog.discipline.toLowerCase().includes(currentKeyword.toLowerCase());
+                return matchLevel && matchSchool && matchDiscipline && matchKeyword;
+            });
+
+            document.getElementById('program-count-label').innerHTML =
+                `Showing <span class="text-white font-bold">${filtered.length}</span> ${filtered.length === 1 ? 'program' : 'programs'}`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full glass-card-dark rounded-3xl p-10 text-center">
+                        <h4 class="font-serif font-bold text-white text-xl">No matching degree programs found</h4>
+                        <p class="text-xs text-slate-400 mt-1.5">Try resetting active filters or searching a broader discipline keyword.</p>
+                        <button onclick="resetProgramFilters()" class="mt-4 px-5 py-2.5 rounded-xl btn-gold-cinematic font-display font-bold text-xs">Reset All Filters</button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(prog => `
+                <div onmousemove="tiltCard(event, this)" onmouseleave="resetTiltCard(this)" class="glass-card-dark rounded-3xl p-6 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-10 h-10 rounded-xl bg-white/[0.06] border border-white/15 flex items-center justify-center ${prog.accent}">
+                                    <i class="fa-solid ${prog.icon}"></i>
+                                </span>
+                                <span class="px-2.5 py-1 rounded-lg bg-nust-royal/35 border border-nust-cyan/30 text-white text-xs font-display font-bold">${prog.school}</span>
+                            </div>
+                            <span class="text-[11px] font-display font-bold px-3 py-1 rounded-full bg-nust-gold/15 text-nust-gold border border-nust-gold/35">${prog.level}</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white group-hover:text-nust-gold transition">${prog.title}</h3>
+                        <p class="text-xs text-slate-400 mt-1.5 flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-nust-cyan"></i> ${prog.campus}
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-white/10 space-y-2 text-xs text-slate-300">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Duration:</span>
+                                <span class="font-semibold text-white">${prog.duration}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Entry Test:</span>
+                                <span class="font-semibold text-nust-cyan">${prog.test}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-2">
+                        <button onclick="openProgramModal(${prog.id})" class="w-full py-2.5 px-4 rounded-xl bg-white/[0.06] hover:bg-nust-gold hover:text-nust-obsidian border border-white/15 hover:border-nust-gold text-white font-display font-bold text-xs transition flex items-center justify-center gap-2">
+                            <span>Inspect Curriculum & Fee</span>
+                            <i class="fa-solid fa-arrow-right text-[11px]"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function tiltCard(e, card) {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `perspective(900px) rotateX(${(-y * 7).toFixed(2)}deg) rotateY(${(x * 7).toFixed(2)}deg) translateY(-4px)`;
+        }
+        function resetTiltCard(card) {
+            card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        }
+
+        function setProgramLevel(level) {
+            currentLevel = level;
+            document.querySelectorAll('.level-btn').forEach(btn => {
+                if (btn.dataset.level === level) {
+                    btn.className = "level-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-display font-bold bg-nust-gold text-nust-obsidian transition";
+                } else {
+                    btn.className = "level-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-display font-bold text-slate-300 hover:text-white transition";
+                }
+            });
+            renderPrograms();
+        }
+
+        function setProgramSchool(school) {
+            currentSchool = school;
+            document.querySelectorAll('.school-chip').forEach(chip => {
+                if (chip.dataset.school === school) {
+                    chip.className = "school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-bold bg-nust-cyan/20 text-nust-cyan border border-nust-cyan transition";
+                } else {
+                    chip.className = "school-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-display font-semibold bg-white/[0.04] text-slate-300 border border-white/10 hover:border-white/30 transition";
+                }
+            });
+            renderPrograms();
+        }
+
+        function filterProgramsBySchool(school) {
+            setProgramSchool(school);
+        }
+
+        function executeHeroSearch() {
+            currentKeyword = document.getElementById('hero-search-input').value.trim();
+            const levelVal = document.getElementById('hero-level-select').value;
+            const discVal = document.getElementById('hero-discipline-select').value;
+            currentDiscipline = discVal;
+            setProgramLevel(levelVal);
+            document.getElementById('programs').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetProgramFilters() {
+            currentKeyword = '';
+            currentDiscipline = 'All';
+            document.getElementById('hero-search-input').value = '';
+            document.getElementById('hero-level-select').value = 'All';
+            document.getElementById('hero-discipline-select').value = 'All';
+            setProgramSchool('All');
+            setProgramLevel('All');
+        }
+
+        // -------------------- ADMISSIONS TABS & COCKPIT MERIT GAUGE --------------------
+        function switchAdmissionTab(tabKey) {
+            document.querySelectorAll('.adm-tab').forEach(btn => {
+                btn.className = "adm-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-display font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+            });
+            const activeBtn = document.getElementById(`tab-${tabKey}`);
+            activeBtn.className = "adm-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-display font-bold bg-nust-navy text-white shadow-sm transition";
+
+            const data = admissionsTabsData[tabKey];
+            document.getElementById('admission-tab-content').innerHTML = `
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+                    <h3 class="font-serif text-xl sm:text-2xl font-bold text-nust-navy">${data.title}</h3>
+                    <span class="px-3 py-1 rounded-full bg-nust-gold/25 border border-nust-gold/50 text-nust-navy text-xs font-display font-bold">${data.badge}</span>
+                </div>
+                <div class="space-y-3.5">
+                    ${data.steps.map(item => `
+                        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-nust-navy text-nust-gold font-display font-bold text-sm flex items-center justify-center shrink-0">
+                                ${item.step}
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center justify-between gap-1">
+                                    <h4 class="font-bold text-sm text-slate-900">${item.name}</h4>
+                                    <span class="text-xs font-display font-bold text-nust-royal bg-sky-100/80 px-2.5 py-0.5 rounded-full">${item.date}</span>
+                                </div>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">${item.detail}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="mt-6 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-200">
+                    <span class="text-xs font-medium text-slate-600">Need-based financial aid & HONHAAR scholarships available.</span>
+                    <button onclick="openApplyModal()" class="px-5 py-2.5 rounded-xl btn-gold-cinematic font-display font-bold text-xs">
+                        Apply Online Now
+                    </button>
+                </div>
+            `;
+        }
+
+        let celebratedMerit = false;
+        function calculateAggregate() {
+            const track = document.getElementById('calc-track').value;
+            const matric = parseFloat(document.getElementById('calc-matric').value);
+            const fsc = parseFloat(document.getElementById('calc-fsc').value);
+            const net = parseFloat(document.getElementById('calc-net').value);
+
+            const fscGroup = document.getElementById('fsc-input-group');
+            const matricLabel = document.getElementById('matric-label');
+
+            let aggregate = 0;
+            if (track === 'alevel') {
+                fscGroup.classList.add('opacity-40', 'pointer-events-none');
+                matricLabel.textContent = "O-Level Equivalence (%)";
+                aggregate = (matric * 0.25) + ((net / 200) * 75);
+            } else {
+                fscGroup.classList.remove('opacity-40', 'pointer-events-none');
+                matricLabel.textContent = "Matric / SSC (%)";
+                aggregate = (matric * 0.10) + (fsc * 0.15) + ((net / 200) * 75);
+            }
+
+            document.getElementById('matric-val-display').textContent = `${matric.toFixed(1)}%`;
+            document.getElementById('fsc-val-display').textContent = `${fsc.toFixed(1)}%`;
+            document.getElementById('net-val-display').textContent = `${net} / 200`;
+            document.getElementById('aggregate-result').textContent = `${aggregate.toFixed(2)}%`;
+            document.getElementById('aggregate-ring-pct').textContent = `${Math.round(aggregate)}%`;
+
+            // Update Circular SVG Gauge Arc (circumference ~ 207.3)
+            const arc = document.getElementById('merit-arc');
+            const offset = 207.3 - (207.3 * Math.min(100, Math.max(0, aggregate))) / 100;
+            arc.style.strokeDashoffset = offset.toFixed(1);
+
+            const badge = document.getElementById('merit-badge');
+            const hint = document.getElementById('merit-hint');
+
+            if (aggregate >= 78) {
+                badge.textContent = "Highly Competitive";
+                badge.className = "inline-block px-3 py-1 rounded-full text-xs font-display font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40";
+                hint.textContent = "Strong standing for SEECS, SMME & NBS";
+                arc.style.stroke = "#34D399";
+                if (!celebratedMerit) {
+                    celebratedMerit = true;
+                    triggerCelebration();
+                }
+            } else if (aggregate >= 68) {
+                celebratedMerit = false;
+                badge.textContent = "Competitive Tier";
+                badge.className = "inline-block px-3 py-1 rounded-full text-xs font-display font-bold bg-nust-gold/20 text-nust-gold border border-nust-gold/40";
+                hint.textContent = "Solid prospects across Engineering & Sciences";
+                arc.style.stroke = "#F5B82E";
+            } else {
+                celebratedMerit = false;
+                badge.textContent = "Target 145+ NET";
+                badge.className = "inline-block px-3 py-1 rounded-full text-xs font-display font-bold bg-rose-500/20 text-rose-300 border border-rose-400/40";
+                hint.textContent = "Retake next NET series to elevate aggregate";
+                arc.style.stroke = "#00D4FF";
+            }
+        }
+
+        // -------------------- CAMPUS PANORAMA SWITCHER --------------------
+        function selectCampus(key) {
+            document.querySelectorAll('.campus-btn').forEach(btn => {
+                if (btn.dataset.campus === key) {
+                    btn.className = "campus-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-bold btn-gold-cinematic";
+                } else {
+                    btn.className = "campus-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-semibold bg-white/[0.05] text-slate-200 border border-white/15 hover:border-nust-cyan/50 transition";
+                }
+            });
+
+            const c = campusesData[key];
+            document.getElementById('campus-display').innerHTML = `
+                <div class="lg:col-span-5 relative min-h-[270px] lg:min-h-full bg-nust-obsidian border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between">
+                    <div class="w-full h-full flex items-center justify-center">
+                        ${c.svgScene}
+                    </div>
+                    <div class="p-4 bg-nust-obsidian/90 backdrop-blur-md border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs font-display font-semibold text-slate-300">Twilight Architectural View</span>
+                        <button onclick="showToast('Launching 360° Interactive Campus Panorama...', '🌐')" class="px-3.5 py-2 rounded-lg btn-gold-cinematic font-display font-bold text-xs">
+                            360° Panorama
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 p-6 sm:p-9 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-display font-bold uppercase tracking-widest text-nust-cyan">${c.tagline}</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-1.5">${c.name}</h3>
+                        <p class="text-sm text-slate-300 mt-3 leading-relaxed">${c.description}</p>
+
+                        <div class="grid sm:grid-cols-2 gap-4 mt-6">
+                            ${c.highlights.map(h => `
+                                <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-nust-gold/15 border border-nust-gold/35 text-nust-gold flex items-center justify-center shrink-0">
+                                        <i class="fa-solid ${h.icon}"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-display font-bold text-xs sm:text-sm text-white">${h.title}</h4>
+                                        <p class="text-xs text-slate-400 mt-0.5">${h.sub}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // -------------------- NEWS & CIRCULARS --------------------
+        function filterNews(category) {
+            document.querySelectorAll('.news-filter-btn').forEach(btn => {
+                if (btn.dataset.news === category) {
+                    btn.className = "news-filter-btn px-4 py-2 rounded-xl text-xs font-display font-bold bg-nust-gold text-nust-obsidian transition";
+                } else {
+                    btn.className = "news-filter-btn px-4 py-2 rounded-xl text-xs font-display font-semibold bg-white/[0.05] text-slate-300 border border-white/10 hover:border-white/30 transition";
+                }
+            });
+
+            const filtered = category === 'All' ? newsData : newsData.filter(n => n.category === category);
+            document.getElementById('news-grid').innerHTML = filtered.map(item => `
+                <article class="glass-card-dark rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs mb-3">
+                            <span class="px-3 py-1 rounded-full font-display font-bold bg-nust-cyan/15 text-nust-cyan border border-nust-cyan/35">${item.category}</span>
+                            <span class="text-slate-400">${item.date}</span>
+                        </div>
+                        <h3 class="font-display text-lg font-bold text-white leading-snug">${item.title}</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-2.5 leading-relaxed">${item.summary}</p>
+                    </div>
+                    <button onclick="showToast('Opening circular: ${item.title.replace(/'/g, "")}', '📜')" class="mt-5 text-xs font-display font-bold text-nust-gold hover:text-nust-cyan inline-flex items-center gap-1.5 transition">
+                        <span>Read Official Circular</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </article>
+            `).join('');
+        }
+
+        // -------------------- MODALS, SEARCH & UTILITIES --------------------
+        function openProgramModal(id) {
+            const prog = programsData.find(p => p.id === id);
+            if (!prog) return;
+            document.getElementById('modal-prog-school').textContent = `${prog.school} — ${prog.campus}`;
+            document.getElementById('modal-prog-title').textContent = prog.title;
+            document.getElementById('modal-prog-duration').textContent = prog.duration;
+            document.getElementById('modal-prog-test').textContent = prog.test;
+            document.getElementById('modal-prog-fee').textContent = prog.fee;
+            document.getElementById('modal-prog-desc').textContent = prog.description;
+            document.getElementById('modal-prog-modules').innerHTML = prog.modules.map(m =>
+                `<span class="px-3 py-1.5 rounded-xl bg-white/[0.06] border border-white/15 text-slate-200 text-xs font-medium">${m}</span>`
+            ).join('');
+
+            const modal = document.getElementById('program-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProgramModal() {
+            const modal = document.getElementById('program-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openApplyModal() {
+            const modal = document.getElementById('apply-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeApplyModal() {
+            const modal = document.getElementById('apply-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function submitQuickApplication(e) {
+            e.preventDefault();
+            closeApplyModal();
+            triggerCelebration();
+            const randomId = Math.floor(100000 + Math.random() * 900000);
+            showToast(`Application Registered — Tracking ID: NUST-2027-${randomId}`, '🎓');
+        }
+
+        function openSearchModal() {
+            const modal = document.getElementById('search-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('global-search-input').focus();
+        }
+
+        function closeSearchModal() {
+            const modal = document.getElementById('search-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleGlobalSearch(query) {
+            const container = document.getElementById('global-search-results');
+            const q = query.trim().toLowerCase();
+            if (!q) {
+                container.innerHTML = `<p class="text-xs text-slate-400">Type to search across NUST degree programs, schools, and admissions...</p>`;
+                return;
+            }
+            const matches = programsData.filter(p =>
+                p.title.toLowerCase().includes(q) || p.school.toLowerCase().includes(q) || p.discipline.toLowerCase().includes(q)
+            );
+            if (matches.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400">No direct results for "${query}". Try "Computer", "Mechanical", "BBA", or "SEECS".</p>`;
+                return;
+            }
+            container.innerHTML = matches.map(m => `
+                <button onclick="closeSearchModal(); openProgramModal(${m.id});" class="w-full text-left p-3 rounded-xl hover:bg-white/10 border border-transparent hover:border-nust-cyan/40 flex items-center justify-between transition">
+                    <div>
+                        <p class="font-display font-bold text-white text-sm">${m.title}</p>
+                        <p class="text-xs text-slate-400">${m.school} • ${m.level}</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-xs text-nust-gold"></i>
+                </button>
+            `).join('');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            document.getElementById('newsletter-email').value = '';
+            triggerCelebration();
+            showToast('Subscribed to NUST Official Admissions & Research Dispatch.', '✨');
+        }
+
+        let toastTimer;
+        function showToast(msg, emoji = '✨') {
+            const box = document.getElementById('toast-box');
+            document.getElementById('toast-message').textContent = msg;
+            document.getElementById('toast-emoji').textContent = emoji;
+            box.classList.remove('hidden');
+            box.classList.add('flex');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                box.classList.add('hidden');
+                box.classList.remove('flex');
+            }, 4000);
+        }
+
+        // Scroll Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                openSearchModal();
+            }
+            if (e.key === 'Escape') {
+                closeProgramModal();
+                closeApplyModal();
+                closeSearchModal();
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderPrograms();
+            switchAdmissionTab('ug');
+            calculateAggregate();
+            selectCampus('h12');
+            filterNews('All');
+            document.querySelectorAll('.cinematic-reveal').forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
